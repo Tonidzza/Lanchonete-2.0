@@ -460,4 +460,39 @@ footer h2 {
         font-size: 180px;
     }
 
+@keyframes neon {
+
+    0%,
+    100% {
+
+        text-shadow:
+
+            0 0 5px #e6392f,
+
+            0 0 10px #e6392f,
+
+            3px 3px 0 #e6392f;
+
+    }
+
+    50% {
+
+        text-shadow:
+
+            0 0 2px #e6392f,
+
+            0 0 5px #e6392f,
+
+            3px 3px 0 #e6392f;
+
+    }
+
 }
+
+
+.hero h1 {
+
+    animation: neon 2s infinite;
+
+}
+
