@@ -1,3 +1,10 @@
-// JavaScript do Retro Burger
+const menuBtn = document.getElementById("menuBtn");
 
-console.log("Retro Burger carregado!");
+const menu = document.getElementById("menu");
+
+
+menuBtn.addEventListener("click", function() {
+
+    menu.classList.toggle("active");
+
+});
