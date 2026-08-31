@@ -74,44 +74,296 @@
 
         <!-- CARDÁPIO -->
 
-        <section id="cardapio" class="section">
+        <section id="cardapio" class="section menu-section">
 
-            <p class="section-label">
-                OUR FAVORITES
-            </p>
+    <div class="section-header">
 
-            <h2>
-                BURGERS
-            </h2>
+        <p class="section-label">
+            SINCE 1978
+        </p>
 
-            <div class="burger-card">
+        <h2>
+            OUR MENU
+        </h2>
 
-                <div class="burger-image">
-                    🍔
-                </div>
+        <p class="section-description">
+            Clássicos americanos feitos na chapa,
+            do jeito que a gente gosta.
+        </p>
 
-                <div class="burger-info">
+    </div>
 
-                    <h3>
-                        Classic Burger
-                    </h3>
 
-                    <p>
-                        Hambúrguer artesanal, queijo,
-                        molho especial e ingredientes frescos.
-                    </p>
+    <!-- FILTROS -->
+
+    <div class="filters">
+
+        <button class="filter active" data-filter="burgers">
+            🍔 BURGERS
+        </button>
+
+        <button class="filter" data-filter="combos">
+            🍟 COMBOS
+        </button>
+
+        <button class="filter" data-filter="sides">
+            🍟 SIDES
+        </button>
+
+        <button class="filter" data-filter="drinks">
+            🥤 DRINKS
+        </button>
+
+    </div>
+
+
+    <!-- PRODUTOS -->
+
+    <div class="products">
+
+
+        <!-- BURGER 1 -->
+
+        <article class="product-card" data-category="burgers">
+
+            <div class="product-image">
+                🍔
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-number">
+                    #01
+                </span>
+
+                <h3>
+                    CLASSIC BURGER
+                </h3>
+
+                <p>
+                    Hambúrguer artesanal, queijo cheddar,
+                    cebola, picles e molho especial.
+                </p>
+
+                <div class="product-bottom">
 
                     <strong>
                         R$ 29,90
                     </strong>
 
+                    <button class="add-btn">
+                        +
+                    </button>
+
                 </div>
 
             </div>
 
-        </section>
+        </article>
 
-    </main>
+
+        <!-- BURGER 2 -->
+
+        <article class="product-card" data-category="burgers">
+
+            <div class="product-image">
+                🍔
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-number">
+                    #02
+                </span>
+
+                <h3>
+                    DOUBLE CHEESE
+                </h3>
+
+                <p>
+                    Dois hambúrgueres, cheddar cremoso,
+                    cebola caramelizada e molho da casa.
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        R$ 34,90
+                    </strong>
+
+                    <button class="add-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- BURGER 3 -->
+
+        <article class="product-card" data-category="burgers">
+
+            <div class="product-image">
+                🍔
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-number">
+                    #03
+                </span>
+
+                <h3>
+                    BACON BLAST
+                </h3>
+
+                <p>
+                    Hambúrguer, cheddar, bacon crocante,
+                    cebola crispy e barbecue.
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        R$ 36,90
+                    </strong>
+
+                    <button class="add-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- COMBO -->
+
+        <article class="product-card" data-category="combos">
+
+            <div class="product-image">
+                🍔🍟
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-number">
+                    #04
+                </span>
+
+                <h3>
+                    CLASSIC COMBO
+                </h3>
+
+                <p>
+                    Classic Burger, batata crocante
+                    e refrigerante.
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        R$ 39,90
+                    </strong>
+
+                    <button class="add-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- SIDE -->
+
+        <article class="product-card" data-category="sides">
+
+            <div class="product-image">
+                🍟
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-number">
+                    #05
+                </span>
+
+                <h3>
+                    CLASSIC FRIES
+                </h3>
+
+                <p>
+                    Batatas crocantes temperadas
+                    com nosso molho especial.
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        R$ 14,90
+                    </strong>
+
+                    <button class="add-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+        <!-- DRINK -->
+
+        <article class="product-card" data-category="drinks">
+
+            <div class="product-image">
+                🥤
+            </div>
+
+            <div class="product-content">
+
+                <span class="product-number">
+                    #06
+                </span>
+
+                <h3>
+                    CLASSIC SHAKE
+                </h3>
+
+                <p>
+                    Milkshake cremoso de baunilha
+                    com cobertura especial.
+                </p>
+
+                <div class="product-bottom">
+
+                    <strong>
+                        R$ 18,90
+                    </strong>
+
+                    <button class="add-btn">
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
 
 
     <!-- RODAPÉ -->
