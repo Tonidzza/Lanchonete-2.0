@@ -146,7 +146,42 @@ body {
    HERO
 ================================= */
 
-.hero {
+ .hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    border: 3px solid #e6392f;
+
+    border-radius: 50%;
+
+    opacity: 0.15;
+
+}
+
+
+.hero::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 700px;
+
+    height: 700px;
+
+    border: 3px solid #f5d547;
+
+    border-radius: 50%;
+
+    opacity: 0.08;
+
+}
 
     min-height: calc(100vh - 75px);
 
@@ -194,6 +229,7 @@ body {
 /* TÍTULO */
 
 .hero h1 {
+    
     font-size: 58px;
 
     line-height: 0.95;
@@ -205,7 +241,13 @@ body {
     color: #f5e6c8;
 
     text-shadow:
+
+        0 0 5px #e6392f,
+
+        0 0 10px #e6392f,
+
         3px 3px 0 #e6392f;
+
 }
 
 .hero h1 span {
