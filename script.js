@@ -8,6 +8,18 @@ menuBtn.addEventListener("click", function() {
     menu.classList.toggle("active");
 
 });
+const menuLinks = document.querySelectorAll(".menu a");
+
+
+menuLinks.forEach(function(link) {
+
+    link.addEventListener("click", function() {
+
+        menu.classList.remove("active");
+
+    });
+
+});
 // =================================
 // FILTRO DO CARDÁPIO
 // =================================
