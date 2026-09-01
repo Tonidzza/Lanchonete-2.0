@@ -908,3 +908,59 @@ footer {
     z-index: 1;
 
 }
+/* =================================
+   SOBRE
+================================= */
+
+.about-section {
+
+    padding: 90px 20px;
+
+    background: #e8d7b7;
+
+    color: #2b2118;
+
+    position: relative;
+
+}
+
+
+.about-content {
+
+    max-width: 650px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+
+.about-content h2 {
+
+    font-size: 42px;
+
+    line-height: 1;
+
+    margin: 15px 0 25px;
+
+}
+
+
+.about-content h2 span {
+
+    display: block;
+
+    color: #4f6418;
+
+}
+
+
+.about-content p {
+
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+
+}
+
