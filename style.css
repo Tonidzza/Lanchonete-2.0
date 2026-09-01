@@ -149,16 +149,22 @@ body {
 
 /* BOTÃO MOBILE */
 
-.menu-btn {
-    background: none;
+..menu-btn {
 
-    border: none;
+    background: #d66a16;
 
-    color: #f5d547;
+    border: 2px solid #2b2118;
 
-    font-size: 28px;
+    color: #f6edda;
+
+    width: 45px;
+
+    height: 45px;
+
+    font-size: 24px;
 
     cursor: pointer;
+
 }
 
 
@@ -166,42 +172,7 @@ body {
    HERO
 ================================= */
 
- .hero::before {
-
-    content: "";
-
-    position: absolute;
-
-    width: 500px;
-
-    height: 500px;
-
-    border: 3px solid #e6392f;
-
-    border-radius: 50%;
-
-    opacity: 0.15;
-
-}
-
-
-.hero::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 700px;
-
-    height: 700px;
-
-    border: 3px solid #f5d547;
-
-    border-radius: 50%;
-
-    opacity: 0.08;
-
-}
+.hero {
 
     min-height: calc(100vh - 75px);
 
@@ -224,11 +195,18 @@ body {
     background:
 
         radial-gradient(
-            circle at 50% 40%,
-            #57201d 0%,
-            #241312 35%,
-            #111111 75%
-        );
+            circle at 80% 20%,
+            #d9e58c 0%,
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 10% 80%,
+            #f5b45b 0%,
+            transparent 25%
+        ),
+
+        #f6edda;
 
 }
 
@@ -249,7 +227,7 @@ body {
 /* TÍTULO */
 
 .hero h1 {
-    
+
     font-size: 58px;
 
     line-height: 0.95;
@@ -258,27 +236,25 @@ body {
 
     letter-spacing: -2px;
 
-    color: #f5e6c8;
+    color: #2b2118;
 
     text-shadow:
 
-        0 0 5px #e6392f,
-
-        0 0 10px #e6392f,
-
-        3px 3px 0 #e6392f;
+        4px 4px 0 #d66a16;
 
 }
 
 .hero h1 span {
+
     display: block;
 
-    color: #f5d547;
+    color: #4f6418;
 
     text-shadow:
-        3px 3px 0 #e6392f;
-}
 
+        4px 4px 0 #d66a16;
+
+}
 
 /* SUBTÍTULO */
 
@@ -296,13 +272,14 @@ body {
 /* BOTÃO */
 
 .btn {
+
     display: inline-block;
 
     padding: 15px 28px;
 
-    background: #e6392f;
+    background: #4f6418;
 
-    color: #fff;
+    color: #ffffff;
 
     text-decoration: none;
 
@@ -310,12 +287,14 @@ body {
 
     letter-spacing: 1px;
 
-    border: 3px solid #f5d547;
+    border: 3px solid #2b2118;
 
     box-shadow:
-        5px 5px 0 #f5d547;
+
+        5px 5px 0 #d66a16;
 
     transition: 0.2s;
+
 }
 
 .btn:active {
@@ -329,14 +308,17 @@ body {
 /* HAMBÚRGUER */
 
 .hero-burger {
+
     font-size: 120px;
 
     margin-top: 40px;
 
     filter:
-        drop-shadow(0 0 15px #e6392f);
-}
+        drop-shadow(
+            8px 10px 0 #d66a16
+        );
 
+}
 
 /* =================================
    SEÇÕES
@@ -520,9 +502,11 @@ footer h2 {
 ================================= */
 
 .menu-section {
-    background: #f5e6c8;
+
+    background: #fff8e8;
 
     padding: 80px 20px;
+
 }
 
 
@@ -607,17 +591,21 @@ footer h2 {
 /* CARD */
 
 .product-card {
-    background: #111111;
 
-    color: #f5e6c8;
+    background: #2b2118;
 
-    border: 4px solid #e6392f;
+    color: #fff8e8;
 
-    box-shadow: 7px 7px 0 #f5d547;
+    border: 3px solid #d66a16;
+
+    box-shadow:
+
+        7px 7px 0 #b8d334;
 
     overflow: hidden;
 
     transition: 0.25s;
+
 }
 
 
