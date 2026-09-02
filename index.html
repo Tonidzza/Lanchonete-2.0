@@ -2,59 +2,80 @@
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Retro Burger - Hambúrgueres artesanais com o verdadeiro sabor dos clássicos americanos.">
 
     <title>Retro Burger | American Diner</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
+
+    <!-- =================================
+         FUNDO INTERATIVO
+    ================================= -->
+
     <div class="retro-background" aria-hidden="true">
 
-    <span class="bg-item burger">🍔</span>
-    <span class="bg-item fries">🍟</span>
-    <span class="bg-item drink">🥤</span>
+        <div class="bg-food bg-burger bg-1"></div>
+        <div class="bg-food bg-fries bg-2"></div>
+        <div class="bg-food bg-drink bg-3"></div>
 
-    <span class="bg-item burger">🍔</span>
-    <span class="bg-item fries">🍟</span>
-    <span class="bg-item drink">🥤</span>
+        <div class="bg-food bg-burger bg-4"></div>
+        <div class="bg-food bg-fries bg-5"></div>
+        <div class="bg-food bg-drink bg-6"></div>
 
-    <span class="bg-item burger">🍔</span>
-    <span class="bg-item fries">🍟</span>
-    <span class="bg-item drink">🥤</span>
+        <div class="bg-food bg-burger bg-7"></div>
+        <div class="bg-food bg-fries bg-8"></div>
 
-</div>
+    </div>
 
-    <!-- CABEÇALHO -->
+
+    <!-- =================================
+         CABEÇALHO
+    ================================= -->
 
     <header class="header">
 
-        <a href="#" class="logo">
+        <a href="#inicio" class="logo">
             RETRO<span>BURGER</span>
         </a>
 
         <nav class="menu" id="menu">
+
             <a href="#inicio">Início</a>
             <a href="#cardapio">Cardápio</a>
             <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
+
         </nav>
 
-        <button class="menu-btn" id="menuBtn">
-            ☰
+        <button
+            class="menu-btn"
+            id="menuBtn"
+            aria-label="Abrir menu"
+            aria-expanded="false">
+
+            <span></span>
+            <span></span>
+            <span></span>
+
         </button>
 
     </header>
 
 
-    <!-- HERO / PRIMEIRA TELA -->
+    <!-- =================================
+         CONTEÚDO PRINCIPAL
+    ================================= -->
 
     <main>
+
+        <!-- HERO -->
 
         <section class="hero" id="inicio">
 
@@ -70,8 +91,8 @@
                 </h1>
 
                 <p class="subtitle">
-                    O verdadeiro sabor dos clássicos
-                    americanos.
+                    O verdadeiro sabor dos clássicos americanos,
+                    feito na chapa e servido do nosso jeito.
                 </p>
 
                 <a href="#cardapio" class="btn">
@@ -80,349 +101,468 @@
 
             </div>
 
-            <div class="hero-burger">
-                🍔
+
+            <div class="hero-food">
+
+                <div class="hero-glow"></div>
+
+                <div class="hero-burger">
+
+                    <div class="bun-top">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="lettuce"></div>
+                    <div class="cheese"></div>
+                    <div class="patty"></div>
+                    <div class="sauce"></div>
+                    <div class="bun-bottom"></div>
+
+                </div>
+
             </div>
 
         </section>
 
 
-        <!-- CARDÁPIO -->
+        <!-- =================================
+             CARDÁPIO
+        ================================= -->
 
         <section id="cardapio" class="section menu-section">
 
-    <div class="section-header">
+            <div class="section-header">
 
-        <p class="section-label">
-            SINCE 1978
-        </p>
-
-        <h2>
-            OUR MENU
-        </h2>
-
-        <p class="section-description">
-            Clássicos americanos feitos na chapa,
-            do jeito que a gente gosta.
-        </p>
-
-    </div>
-
-
-    <!-- FILTROS -->
-
-    <div class="filters">
-
-        <button class="filter active" data-filter="burgers">
-            🍔 BURGERS
-        </button>
-
-        <button class="filter" data-filter="combos">
-            🍟 COMBOS
-        </button>
-
-        <button class="filter" data-filter="sides">
-            🍟 SIDES
-        </button>
-
-        <button class="filter" data-filter="drinks">
-            🥤 DRINKS
-        </button>
-
-    </div>
-
-
-    <!-- PRODUTOS -->
-
-    <div class="products">
-
-
-        <!-- BURGER 1 -->
-
-        <article class="product-card" data-category="burgers">
-
-            <div class="product-image">
-                🍔
-            </div>
-
-            <div class="product-content">
-
-                <span class="product-number">
-                    #01
-                </span>
-
-                <h3>
-                    CLASSIC BURGER
-                </h3>
-
-                <p>
-                    Hambúrguer artesanal, queijo cheddar,
-                    cebola, picles e molho especial.
+                <p class="section-label">
+                    SINCE 1978
                 </p>
 
-                <div class="product-bottom">
+                <h2>
+                    OUR MENU
+                </h2>
 
-                    <strong>
-                        R$ 29,90
-                    </strong>
-
-                    <button class="add-btn">
-                        +
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- BURGER 2 -->
-
-        <article class="product-card" data-category="burgers">
-
-            <div class="product-image">
-                🍔
-            </div>
-
-            <div class="product-content">
-
-                <span class="product-number">
-                    #02
-                </span>
-
-                <h3>
-                    DOUBLE CHEESE
-                </h3>
-
-                <p>
-                    Dois hambúrgueres, cheddar cremoso,
-                    cebola caramelizada e molho da casa.
+                <p class="section-description">
+                    Clássicos americanos feitos na chapa,
+                    com ingredientes de qualidade e muito sabor.
                 </p>
 
-                <div class="product-bottom">
+            </div>
 
-                    <strong>
-                        R$ 34,90
-                    </strong>
 
-                    <button class="add-btn">
-                        +
-                    </button>
+            <!-- FILTROS -->
 
-                </div>
+            <div class="filters">
+
+                <button class="filter active" data-filter="burgers">
+                    BURGERS
+                </button>
+
+                <button class="filter" data-filter="combos">
+                    COMBOS
+                </button>
+
+                <button class="filter" data-filter="sides">
+                    SIDES
+                </button>
+
+                <button class="filter" data-filter="drinks">
+                    DRINKS
+                </button>
 
             </div>
 
-        </article>
+
+            <!-- PRODUTOS -->
+
+            <div class="products">
 
 
-        <!-- BURGER 3 -->
+                <!-- BURGER 1 -->
 
-        <article class="product-card" data-category="burgers">
+                <article class="product-card" data-category="burgers">
 
-            <div class="product-image">
-                🍔
+                    <div class="product-image burger-product">
+
+                        <div class="mini-burger">
+                            <div class="mini-bun"></div>
+                            <div class="mini-cheese"></div>
+                            <div class="mini-patty"></div>
+                            <div class="mini-lettuce"></div>
+                            <div class="mini-bottom"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <span class="product-number">
+                            #01
+                        </span>
+
+                        <h3>
+                            CLASSIC BURGER
+                        </h3>
+
+                        <p>
+                            Hambúrguer artesanal, queijo cheddar,
+                            cebola, picles e molho especial.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                R$ 29,90
+                            </strong>
+
+                            <button class="add-btn" aria-label="Adicionar Classic Burger">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- BURGER 2 -->
+
+                <article class="product-card" data-category="burgers">
+
+                    <div class="product-image burger-product">
+
+                        <div class="mini-burger">
+                            <div class="mini-bun"></div>
+                            <div class="mini-cheese"></div>
+                            <div class="mini-patty"></div>
+                            <div class="mini-lettuce"></div>
+                            <div class="mini-bottom"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <span class="product-number">
+                            #02
+                        </span>
+
+                        <h3>
+                            DOUBLE CHEESE
+                        </h3>
+
+                        <p>
+                            Dois hambúrgueres, cheddar cremoso,
+                            cebola caramelizada e molho da casa.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                R$ 34,90
+                            </strong>
+
+                            <button class="add-btn" aria-label="Adicionar Double Cheese">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- BURGER 3 -->
+
+                <article class="product-card" data-category="burgers">
+
+                    <div class="product-image burger-product">
+
+                        <div class="mini-burger">
+                            <div class="mini-bun"></div>
+                            <div class="mini-cheese"></div>
+                            <div class="mini-patty"></div>
+                            <div class="mini-lettuce"></div>
+                            <div class="mini-bottom"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <span class="product-number">
+                            #03
+                        </span>
+
+                        <h3>
+                            BACON BLAST
+                        </h3>
+
+                        <p>
+                            Hambúrguer, cheddar, bacon crocante,
+                            cebola crispy e barbecue.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                R$ 36,90
+                            </strong>
+
+                            <button class="add-btn" aria-label="Adicionar Bacon Blast">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- COMBO -->
+
+                <article class="product-card" data-category="combos">
+
+                    <div class="product-image combo-product">
+
+                        <div class="combo-visual">
+                            <div class="mini-burger combo-burger"></div>
+                            <div class="mini-fries"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <span class="product-number">
+                            #04
+                        </span>
+
+                        <h3>
+                            CLASSIC COMBO
+                        </h3>
+
+                        <p>
+                            Classic Burger, batata crocante
+                            e refrigerante.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                R$ 39,90
+                            </strong>
+
+                            <button class="add-btn" aria-label="Adicionar Classic Combo">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SIDE -->
+
+                <article class="product-card" data-category="sides">
+
+                    <div class="product-image fries-product">
+
+                        <div class="large-fries">
+
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+
+                            <div class="fries-box"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <span class="product-number">
+                            #05
+                        </span>
+
+                        <h3>
+                            CLASSIC FRIES
+                        </h3>
+
+                        <p>
+                            Batatas crocantes temperadas
+                            com nosso molho especial.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                R$ 14,90
+                            </strong>
+
+                            <button class="add-btn" aria-label="Adicionar Classic Fries">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DRINK -->
+
+                <article class="product-card" data-category="drinks">
+
+                    <div class="product-image drink-product">
+
+                        <div class="large-drink">
+
+                            <div class="straw"></div>
+                            <div class="cup"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="product-content">
+
+                        <span class="product-number">
+                            #06
+                        </span>
+
+                        <h3>
+                            CLASSIC SHAKE
+                        </h3>
+
+                        <p>
+                            Milkshake cremoso de baunilha
+                            com cobertura especial.
+                        </p>
+
+                        <div class="product-bottom">
+
+                            <strong>
+                                R$ 18,90
+                            </strong>
+
+                            <button class="add-btn" aria-label="Adicionar Classic Shake">
+                                +
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
             </div>
 
-            <div class="product-content">
+        </section>
 
-                <span class="product-number">
-                    #03
-                </span>
 
-                <h3>
-                    BACON BLAST
-                </h3>
+        <!-- =================================
+             SOBRE
+        ================================= -->
 
-                <p>
-                    Hambúrguer, cheddar, bacon crocante,
-                    cebola crispy e barbecue.
+        <section id="sobre" class="about-section">
+
+            <div class="about-content">
+
+                <p class="section-label">
+                    DESDE 1978
                 </p>
 
-                <div class="product-bottom">
-
-                    <strong>
-                        R$ 36,90
-                    </strong>
-
-                    <button class="add-btn">
-                        +
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- COMBO -->
-
-        <article class="product-card" data-category="combos">
-
-            <div class="product-image">
-                🍔🍟
-            </div>
-
-            <div class="product-content">
-
-                <span class="product-number">
-                    #04
-                </span>
-
-                <h3>
-                    CLASSIC COMBO
-                </h3>
+                <h2>
+                    MAIS QUE UM BURGER.
+                    <span>UMA TRADIÇÃO.</span>
+                </h2>
 
                 <p>
-                    Classic Burger, batata crocante
-                    e refrigerante.
+                    Há décadas colocamos hambúrgueres na chapa,
+                    batatas na fritadeira e sorrisos na mesa.
                 </p>
-
-                <div class="product-bottom">
-
-                    <strong>
-                        R$ 39,90
-                    </strong>
-
-                    <button class="add-btn">
-                        +
-                    </button>
-
-                </div>
-
-            </div>
-
-        </article>
-
-
-        <!-- SIDE -->
-
-        <article class="product-card" data-category="sides">
-
-            <div class="product-image">
-                🍟
-            </div>
-
-            <div class="product-content">
-
-                <span class="product-number">
-                    #05
-                </span>
-
-                <h3>
-                    CLASSIC FRIES
-                </h3>
 
                 <p>
-                    Batatas crocantes temperadas
-                    com nosso molho especial.
+                    Nossa receita é simples: ingredientes de qualidade,
+                    cuidado em cada detalhe e aquele sabor que lembra
+                    os bons tempos.
                 </p>
 
-                <div class="product-bottom">
-
-                    <strong>
-                        R$ 14,90
-                    </strong>
-
-                    <button class="add-btn">
-                        +
-                    </button>
-
-                </div>
+                <a href="#cardapio" class="btn">
+                    CONHEÇA NOSSO CARDÁPIO
+                </a>
 
             </div>
 
-        </article>
+        </section>
+
+    </main>
 
 
-        <!-- DRINK -->
+    <!-- =================================
+         RODAPÉ / CONTATO
+    ================================= -->
 
-        <article class="product-card" data-category="drinks">
+    <footer id="contato">
 
-            <div class="product-image">
-                🥤
+        <div class="footer-content">
+
+            <h2>
+                RETRO BURGER
+            </h2>
+
+            <p class="footer-slogan">
+                Good Food. Good Times.
+            </p>
+
+            <div class="footer-links">
+
+                <a href="#inicio">
+                    Início
+                </a>
+
+                <a href="#cardapio">
+                    Cardápio
+                </a>
+
+                <a href="#sobre">
+                    Sobre
+                </a>
+
             </div>
 
-            <div class="product-content">
-
-                <span class="product-number">
-                    #06
-                </span>
-
-                <h3>
-                    CLASSIC SHAKE
-                </h3>
+            <div class="footer-contact">
 
                 <p>
-                    Milkshake cremoso de baunilha
-                    com cobertura especial.
+                    📍 Sua cidade
                 </p>
 
-                <div class="product-bottom">
+                <p>
+                    📱 WhatsApp
+                </p>
 
-                    <strong>
-                        R$ 18,90
-                    </strong>
-
-                    <button class="add-btn">
-                        +
-                    </button>
-
-                </div>
+                <p>
+                    📸 Instagram
+                </p>
 
             </div>
 
-        </article>
+            <small>
+                © 2026 Retro Burger. Todos os direitos reservados.
+            </small>
 
-    </div>
-
-</section>
-
-
-    <!-- RODAPÉ -->
-<!-- SOBRE -->
-
-<section id="sobre" class="about-section">
-
-    <div class="about-content">
-
-        <p class="section-label">
-            DESDE 1978
-        </p>
-
-        <h2>
-            MAIS QUE UM BURGER.
-            <span>UMA TRADIÇÃO.</span>
-        </h2>
-
-        <p>
-            Há décadas colocamos hambúrgueres na chapa,
-            batatas na fritadeira e sorrisos na mesa.
-        </p>
-
-        <p>
-            Nossa receita é simples: ingredientes de qualidade,
-            cuidado em cada detalhe e aquele sabor que lembra
-            os bons tempos.
-        </p>
-
-        <a href="#cardapio" class="btn">
-            CONHECER O CARDÁPIO
-        </a>
-
-    </div>
-
-</section>  <footer id="contato">
-
-        <h2>
-            RETRO BURGER
-        </h2>
-
-        <p>
-            Good Food. Good Times.
-        </p>
+        </div>
 
     </footer>
 
