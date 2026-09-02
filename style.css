@@ -512,27 +512,13 @@ footer {
 }
 
 .hero h1 {
-    font-size: clamp(52px, 15vw, 90px);
-
-    line-height: 0.88;
-
-    font-weight: 900;
-
-    letter-spacing: -4px;
-
-    color: #151515;
-
-    text-shadow:
-        5px 5px 0 #00CFE8;
+    ...
+    text-shadow:none;
 }
 
 .hero h1 span {
-    display: block;
-
-    color: #E63946;
-
-    text-shadow:
-        5px 5px 0 #F05A8A;
+    ...
+    text-shadow:none;
 }
 
 .subtitle {
@@ -791,16 +777,8 @@ footer {
 }
 
 .section h2 {
-    font-size: clamp(42px, 10vw, 65px);
-
-    margin: 12px 0 20px;
-
-    color: #151515;
-
-    line-height: 0.95;
-
-    text-shadow:
-        3px 3px 0 #00CFE8;
+    ...
+    text-shadow:none;
 }
 
 .section-description {
@@ -1306,14 +1284,8 @@ footer {
 }
 
 footer h2 {
-    color: #E63946;
-
-    font-size: 38px;
-
-    margin-bottom: 8px;
-
-    text-shadow:
-        3px 3px 0 #00CFE8;
+    ...
+    text-shadow:none;
 }
 
 .footer-slogan {
