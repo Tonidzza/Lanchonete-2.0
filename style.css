@@ -1263,3 +1263,160 @@ html {
 }
 
 }
+
+/* =========================================================
+HERO — FOTO REAL DO BURGER
+========================================================= */
+
+.hero-food {
+position: relative;
+
+width: min(100%, 480px);
+height: 420px;
+margin-top: 45px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+
+}
+
+/* círculo decorativo atrás da foto */
+
+.hero-food::before {
+content: “”;
+
+position: absolute;
+width: 330px;
+height: 330px;
+border-radius: 50%;
+background: #E7D3AF;
+z-index: 0;
+
+}
+
+/* detalhe decorativo */
+
+.hero-food::after {
+content: “SINCE 1978”;
+
+position: absolute;
+right: 5px;
+bottom: 20px;
+padding: 9px 14px;
+background: #641E2A;
+color: #F4E8D0;
+font-size: 11px;
+font-weight: 900;
+letter-spacing: 2px;
+z-index: 3;
+transform: rotate(-4deg);
+
+}
+
+/* container da fotografia */
+
+.hero-image {
+position: relative;
+
+width: 390px;
+height: 390px;
+overflow: hidden;
+border-radius: 50%;
+z-index: 2;
+box-shadow:
+    0 25px 50px rgba(42, 27, 22, 0.22);
+
+}
+
+/* fotografia */
+
+.hero-image img {
+width: 100%;
+height: 100%;
+
+display: block;
+object-fit: cover;
+object-position: center;
+transition: transform 0.7s ease;
+
+}
+
+/* pequeno zoom ao passar o mouse */
+
+.hero-image:hover img {
+transform: scale(1.05);
+}
+
+/* =========================================================
+HERO — MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+.hero-food {
+    width: 100%;
+    height: 340px;
+    margin-top: 35px;
+}
+.hero-food::before {
+    width: 270px;
+    height: 270px;
+}
+.hero-image {
+    width: 300px;
+    height: 300px;
+}
+.hero-food::after {
+    right: 8%;
+    bottom: 0;
+    font-size: 9px;
+}
+
+}
+
+/* =========================================================
+HERO — DESKTOP
+========================================================= */
+
+@media (min-width: 768px) {
+
+.hero-food {
+    width: 460px;
+    height: 460px;
+    margin-top: 0;
+}
+.hero-food::before {
+    width: 390px;
+    height: 390px;
+}
+.hero-image {
+    width: 430px;
+    height: 430px;
+}
+.hero-food::after {
+    right: 0;
+    bottom: 30px;
+}
+
+}
+
+/* =========================================================
+HERO — TELAS GRANDES
+========================================================= */
+
+@media (min-width: 1100px) {
+
+.hero-food {
+    transform: none;
+}
+.hero-image {
+    width: 470px;
+    height: 470px;
+}
+.hero-food::before {
+    width: 430px;
+    height: 430px;
+}
+
+}
