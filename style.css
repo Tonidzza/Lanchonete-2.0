@@ -303,25 +303,13 @@ footer {
 ================================= */
 
 .logo {
-    color: #E63946;
-
-    text-decoration: none;
-
-    font-size: 25px;
-
-    font-weight: 900;
-
-    letter-spacing: 2px;
-
-    text-shadow:
-        3px 3px 0 #00CFE8;
+    ...
+    text-shadow:none;
 }
 
 .logo span {
-    color: #00CFE8;
-
-    text-shadow:
-        2px 2px 0 #F05A8A;
+    ...
+    text-shadow:none;
 }
 
 
