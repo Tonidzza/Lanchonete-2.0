@@ -1885,4 +1885,161 @@ footer small {
     }
 
 }
+/* =========================================================
+   ETAPA 5 — REFINAMENTO DO HERO
+   ========================================================= */
+
+.hero {
+    position: relative;
+}
+
+/* Pequeno detalhe decorativo */
+
+.hero::before {
+    content: "GOOD FOOD • GOOD TIMES";
+
+    position: absolute;
+
+    left: 7%;
+
+    bottom: 25px;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: rgba(100, 30, 42, 0.45);
+
+    transform: rotate(-90deg);
+
+    transform-origin: left bottom;
+
+    pointer-events: none;
+}
+
+
+/* Destaque do texto */
+
+.hero h1 {
+    max-width: 650px;
+}
+
+.hero h1 strong {
+    position: relative;
+}
+
+
+/* Linha abaixo do título */
+
+.hero h1 strong::after {
+    content: "";
+
+    display: block;
+
+    width: 65px;
+
+    height: 4px;
+
+    background: #B8753A;
+
+    margin-top: 18px;
+}
+
+
+/* Botão mais sofisticado */
+
+.hero-button {
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 18px rgba(100, 30, 42, 0.16);
+}
+
+.hero-button::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    transform: translateX(-100%);
+
+    transition: transform 0.35s ease;
+}
+
+.hero-button:hover::before {
+    transform: translateX(0);
+}
+
+
+/* =========================================================
+   FOTO HERO — MAIS DESTAQUE
+   ========================================================= */
+
+.hero-circle {
+    background: #B8753A;
+
+    opacity: 0.42;
+
+    transform: scale(1.02);
+}
+
+.hero-image {
+    border: 10px solid #F4E8D0;
+
+    box-shadow:
+        0 25px 55px rgba(42, 27, 22, 0.20);
+}
+
+
+/* Selo */
+
+.hero-stamp {
+    border: 2px solid #F4E8D0;
+
+    outline: 2px solid #641E2A;
+
+    outline-offset: -5px;
+
+    box-shadow:
+        7px 7px 0 rgba(42, 27, 22, 0.12);
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    .hero::before {
+        display: none;
+    }
+
+    .hero h1 strong::after {
+        width: 48px;
+
+        height: 3px;
+
+        margin-top: 13px;
+    }
+
+    .hero-image {
+        border-width: 7px;
+    }
+
+    .hero-stamp {
+        right: 1%;
+
+        bottom: 4px;
+    }
+
+}
+
 
