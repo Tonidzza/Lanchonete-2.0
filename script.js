@@ -1,181 +1,1638 @@
-/* =================================
-   MENU MOBILE
-================================= */
+/* =========================================================
+   RETRO BURGER
+   AMERICAN DINER PREMIUM
+   ========================================================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const menu = document.getElementById("menu");
 
-menuBtn.addEventListener("click", function () {
+/* =========================================================
+   RESET
+   ========================================================= */
 
-    const isOpen = menu.classList.toggle("active");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    menuBtn.classList.toggle("active", isOpen);
+html {
+    scroll-behavior: smooth;
+}
 
-    menuBtn.setAttribute("aria-expanded", isOpen);
+body {
+    font-family: 'Inter', sans-serif;
 
-    document.body.classList.toggle("menu-open", isOpen);
+    background: #F4E8D0;
+    color: #2A1B16;
 
-});
+    overflow-x: hidden;
+}
 
+img {
+    max-width: 100%;
+}
 
-/* =================================
-   FECHAR MENU AO CLICAR
-================================= */
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-const menuLinks = document.querySelectorAll(".menu a");
+button {
+    font-family: inherit;
+}
 
-menuLinks.forEach(function (link) {
 
-    link.addEventListener("click", function () {
+/* =========================================================
+   VARIÁVEIS
+   ========================================================= */
 
-        menu.classList.remove("active");
+:root {
 
-        menuBtn.classList.remove("active");
+    --cream: #F4E8D0;
+    --cream-dark: #E9D7B8;
 
-        menuBtn.setAttribute("aria-expanded", "false");
+    --wine: #641E2A;
+    --wine-dark: #4A151E;
 
-        document.body.classList.remove("menu-open");
+    --brown: #2A1B16;
+    --brown-light: #5A4033;
 
-    });
+    --caramel: #B8753A;
 
-});
+    --olive: #5E6B45;
 
+    --white: #FFF9EE;
 
-/* =================================
-   FILTRO DO CARDÁPIO
-================================= */
-
-const filters = document.querySelectorAll(".filter");
-const products = document.querySelectorAll(".product-card");
-
-filters.forEach(function (filter) {
-
-    filter.addEventListener("click", function () {
-
-        const category = filter.dataset.filter;
-
-
-        /* Remove ativo */
-
-        filters.forEach(function (button) {
-
-            button.classList.remove("active");
-
-        });
-
-
-        /* Ativa selecionado */
-
-        filter.classList.add("active");
-
-
-        /* Filtra */
-
-        products.forEach(function (product) {
-
-            const productCategory = product.dataset.category;
-
-            if (productCategory === category) {
-
-                product.style.display = "block";
-
-                product.style.animation = "none";
-
-                requestAnimationFrame(function () {
-
-                    product.style.animation =
-                        "cardAppear 0.5s ease both";
-
-                });
-
-            } else {
-
-                product.style.display = "none";
-
-            }
-
-        });
-
-    });
-
-});
-
-
-/* =================================
-   FUNDO INTERATIVO
-================================= */
-
-const backgroundItems =
-    document.querySelectorAll(".bg-food");
-
-
-let scrollPosition = 0;
-
-let ticking = false;
-
-
-function updateBackground() {
-
-    scrollPosition = window.scrollY;
-
-
-    backgroundItems.forEach(function (item, index) {
-
-        const speed =
-            0.08 + (index * 0.018);
-
-        const direction =
-            index % 2 === 0 ? 1 : -1;
-
-        const movement =
-            scrollPosition * speed * direction;
-
-
-        item.style.transform =
-            `translate3d(0, ${movement}px, 0)`;
-
-    });
-
-
-    ticking = false;
+    --border: rgba(42, 27, 22, 0.15);
 
 }
 
 
-window.addEventListener("scroll", function () {
+/* =========================================================
+   FUNDO
+   ========================================================= */
 
-    if (!ticking) {
+body::before {
 
-        window.requestAnimationFrame(
-            updateBackground
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: -2;
+
+    opacity: 0.45;
+
+    background-image:
+        radial-gradient(
+            rgba(42, 27, 22, 0.08) 1px,
+            transparent 1px
         );
 
-        ticking = true;
+    background-size: 5px 5px;
+}
+
+
+/* =========================================================
+   ELEMENTOS DECORATIVOS DE FUNDO
+   ========================================================= */
+
+.retro-background {
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: -1;
+
+    opacity: 0.08;
+}
+
+.bg-food {
+
+    position: absolute;
+
+    border: 2px solid var(--wine);
+
+    border-radius: 50%;
+}
+
+.bg-burger {
+
+    width: 100px;
+    height: 55px;
+
+    transform: rotate(-12deg);
+}
+
+.bg-burger::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 8px;
+    right: 8px;
+
+    top: 25px;
+
+    height: 7px;
+
+    background: var(--wine);
+
+    border-radius: 5px;
+}
+
+.bg-fries {
+
+    width: 55px;
+    height: 70px;
+
+    border-radius: 4px;
+
+    transform: rotate(12deg);
+}
+
+.bg-fries::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 8px;
+    right: 8px;
+
+    top: -18px;
+
+    height: 30px;
+
+    border-left: 5px solid var(--wine);
+    border-right: 5px solid var(--wine);
+
+}
+
+.bg-drink {
+
+    width: 50px;
+    height: 70px;
+
+    border-radius: 5px;
+
+    transform: rotate(-8deg);
+}
+
+
+/* posições */
+
+.bg-1 {
+    top: 20%;
+    left: 3%;
+}
+
+.bg-2 {
+    top: 48%;
+    right: 3%;
+}
+
+.bg-3 {
+    top: 75%;
+    left: 8%;
+}
+
+.bg-4 {
+    top: 90%;
+    right: 10%;
+}
+
+.bg-5 {
+    top: 35%;
+    left: 45%;
+}
+
+.bg-6 {
+    top: 65%;
+    right: 45%;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    width: 100%;
+
+    min-height: 105px;
+
+    padding: 15px 4%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    background: rgba(244, 232, 208, 0.97);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.logo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    line-height: 0.8;
+
+    color: var(--wine);
+
+    flex-shrink: 0;
+}
+
+.logo strong {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 48px;
+
+    font-weight: 400;
+
+    letter-spacing: 6px;
+}
+
+.logo span {
+
+    font-family: 'Inter', sans-serif;
+
+    color: var(--brown);
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    letter-spacing: 7px;
+
+    margin-top: 7px;
+}
+
+.logo small {
+
+    color: var(--wine);
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-top: 10px;
+
+    align-self: center;
+}
+
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.menu {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 42px;
+
+    margin-left: auto;
+
+    margin-right: 55px;
+}
+
+.menu a {
+
+    position: relative;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    padding: 10px 0;
+
+    color: var(--brown);
+
+    transition: color 0.25s ease;
+}
+
+.menu a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 0;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--wine);
+
+    transition: width 0.25s ease;
+}
+
+.menu a:hover,
+.menu a.active {
+
+    color: var(--wine);
+}
+
+.menu a:hover::after,
+.menu a.active::after {
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   BOTÃO HEADER
+   ========================================================= */
+
+.header-button {
+
+    background: var(--wine);
+
+    color: var(--white);
+
+    padding: 16px 30px;
+
+    border-radius: 5px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.header-button:hover {
+
+    background: var(--wine-dark);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   MENU MOBILE
+   ========================================================= */
+
+.menu-btn {
+
+    display: none;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.menu-btn span {
+
+    width: 25px;
+
+    height: 2px;
+
+    background: var(--brown);
+
+    transition: 0.3s;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+
+    min-height: calc(100vh - 105px);
+
+    padding: 70px 7% 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO TEXTO
+   ========================================================= */
+
+.hero-content {
+
+    width: 48%;
+
+    max-width: 620px;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+.hero-kicker {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--wine);
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 22px;
+}
+
+.hero-kicker span {
+
+    width: 32px;
+
+    height: 2px;
+
+    background: var(--wine);
+}
+
+
+/* =========================================================
+   TÍTULO HERO
+   ========================================================= */
+
+.hero h1 {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: clamp(4rem, 6vw, 6.7rem);
+
+    line-height: 0.88;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    color: var(--brown);
+
+    margin-bottom: 28px;
+}
+
+.hero h1 strong {
+
+    display: block;
+
+    color: var(--wine);
+
+    font-weight: 400;
+
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   DESCRIÇÃO
+   ========================================================= */
+
+.hero-description {
+
+    max-width: 510px;
+
+    font-size: 17px;
+
+    line-height: 1.65;
+
+    color: var(--brown-light);
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   BOTÃO HERO
+   ========================================================= */
+
+.hero-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 17px 25px;
+
+    background: var(--wine);
+
+    color: var(--white);
+
+    border-radius: 5px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.hero-button span {
+
+    font-size: 21px;
+
+    line-height: 0;
+}
+
+.hero-button:hover {
+
+    background: var(--wine-dark);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   HERO FOTO
+   ========================================================= */
+
+.hero-food {
+
+    position: relative;
+
+    width: 52%;
+
+    max-width: 650px;
+
+    height: 570px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+
+/* círculo atrás da foto */
+
+.hero-circle {
+
+    position: absolute;
+
+    width: min(95%, 570px);
+
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background: var(--caramel);
+
+    opacity: 0.65;
+
+    z-index: 0;
+}
+
+
+/* imagem */
+
+.hero-image {
+
+    position: relative;
+
+    width: min(90%, 560px);
+
+    aspect-ratio: 1;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    z-index: 2;
+
+    border: 12px solid var(--cream);
+
+    box-shadow:
+        0 25px 60px rgba(42, 27, 22, 0.22);
+}
+
+.hero-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition: transform 0.8s ease;
+}
+
+.hero-image:hover img {
+
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   SELO HERO
+   ========================================================= */
+
+.hero-stamp {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 55px;
+
+    z-index: 5;
+
+    padding: 14px 24px;
+
+    background: var(--wine);
+
+    color: var(--white);
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 22px;
+
+    letter-spacing: 3px;
+
+    transform: rotate(-4deg);
+
+    box-shadow:
+        5px 5px 0 rgba(42, 27, 22, 0.15);
+}
+
+
+/* =========================================================
+   CARDÁPIO
+   ========================================================= */
+
+.menu-section {
+
+    position: relative;
+
+    padding: 80px 4% 100px;
+
+    background: rgba(244, 232, 208, 0.75);
+
+    border-top: 1px solid rgba(42, 27, 22, 0.08);
+}
+
+
+/* =========================================================
+   CABEÇALHO CARDÁPIO
+   ========================================================= */
+
+.section-header {
+
+    text-align: center;
+
+    margin-bottom: 32px;
+}
+
+.section-kicker {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 12px;
+
+    color: var(--wine);
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 8px;
+}
+
+.section-kicker span {
+
+    width: 28px;
+
+    height: 2px;
+
+    background: var(--wine);
+}
+
+.section-header h2 {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: clamp(4rem, 7vw, 6rem);
+
+    line-height: 0.9;
+
+    font-weight: 400;
+
+    letter-spacing: 2px;
+
+    color: var(--brown);
+}
+
+.section-line {
+
+    width: 42px;
+
+    height: 3px;
+
+    background: var(--wine);
+
+    margin: 12px auto 0;
+}
+
+
+/* =========================================================
+   FILTROS
+   ========================================================= */
+
+.filters {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-bottom: 35px;
+}
+
+.filter {
+
+    border: 1px solid #CDAF82;
+
+    background: transparent;
+
+    color: var(--brown);
+
+    padding: 10px 20px;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.filter:hover {
+
+    border-color: var(--wine);
+
+    color: var(--wine);
+
+    transform: translateY(-2px);
+}
+
+.filter.active {
+
+    background: var(--wine);
+
+    border-color: var(--wine);
+
+    color: var(--white);
+}
+
+
+/* =========================================================
+   PRODUTOS
+   ========================================================= */
+
+.products {
+
+    max-width: 1420px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.product-card {
+
+    background: rgba(255, 249, 238, 0.92);
+
+    border: 1px solid rgba(42, 27, 22, 0.1);
+
+    border-radius: 9px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 7px 20px rgba(42, 27, 22, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 30px rgba(42, 27, 22, 0.13);
+}
+
+
+/* =========================================================
+   FOTO DO PRODUTO
+   ========================================================= */
+
+.product-image {
+
+    width: 100%;
+
+    height: 250px;
+
+    overflow: hidden;
+
+    background: #D5B991;
+}
+
+.product-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   CONTEÚDO DO CARD
+   ========================================================= */
+
+.product-content {
+
+    padding: 18px 20px 20px;
+}
+
+.product-top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 9px;
+}
+
+.product-number {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 17px;
+
+    color: var(--brown);
+
+    letter-spacing: 1px;
+}
+
+.product-top::after {
+
+    content: "";
+
+    width: 28px;
+
+    height: 1px;
+
+    background: #BDA47E;
+
+    order: 2;
+}
+
+.stars {
+
+    color: var(--wine);
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    order: 3;
+}
+
+
+/* =========================================================
+   NOME DO PRODUTO
+   ========================================================= */
+
+.product-content h3 {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 32px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    letter-spacing: 1px;
+
+    color: var(--brown);
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   DESCRIÇÃO
+   ========================================================= */
+
+.product-content p {
+
+    color: var(--brown-light);
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    min-height: 42px;
+
+    margin-bottom: 17px;
+}
+
+
+/* =========================================================
+   PARTE INFERIOR CARD
+   ========================================================= */
+
+.product-bottom {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+}
+
+.product-bottom strong {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    letter-spacing: 1px;
+
+    color: var(--brown);
+}
+
+
+/* =========================================================
+   BOTÃO +
+   ========================================================= */
+
+.add-btn {
+
+    width: 46px;
+
+    height: 46px;
+
+    border: none;
+
+    border-radius: 5px;
+
+    background: var(--wine);
+
+    color: var(--white);
+
+    font-size: 28px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.add-btn:hover {
+
+    background: var(--wine-dark);
+
+    transform: scale(1.06);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+
+    background: var(--brown);
+
+    color: var(--cream);
+
+    padding: 65px 7% 35px;
+}
+
+.footer-content {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+.footer-brand h2 {
+
+    font-family: 'Bebas Neue', sans-serif;
+
+    font-size: 45px;
+
+    font-weight: 400;
+
+    letter-spacing: 4px;
+
+    color: var(--cream);
+}
+
+.footer-brand p {
+
+    margin-top: 5px;
+
+    color: #CDAF82;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+.footer-contact {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 30px;
+
+    margin: 30px 0;
+}
+
+.footer-contact p {
+
+    font-size: 13px;
+
+    color: var(--cream-dark);
+}
+
+footer small {
+
+    display: block;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(244, 232, 208, 0.15);
+
+    color: #BDAA8B;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+    .header {
+        padding-left: 4%;
+        padding-right: 4%;
+    }
+
+    .menu {
+        gap: 25px;
+        margin-right: 25px;
+    }
+
+    .header-button {
+        padding: 14px 20px;
+    }
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+
+        gap: 20px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.5rem, 6vw, 5rem);
+    }
+
+    .hero-food {
+        height: 500px;
+    }
+
+    .hero-stamp {
+        right: -5px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+
+    /* HEADER */
+
+    .header {
+
+        min-height: 78px;
+
+        padding: 10px 5%;
 
     }
 
-});
+    .logo strong {
 
+        font-size: 35px;
 
-/* =================================
-   FECHAR MENU AO REDIMENSIONAR
-================================= */
-
-window.addEventListener("resize", function () {
-
-    if (window.innerWidth >= 768) {
-
-        menu.classList.remove("active");
-
-        menuBtn.classList.remove("active");
-
-        menuBtn.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        document.body.classList.remove("menu-open");
-
+        letter-spacing: 4px;
     }
 
-});
+    .logo span {
+
+        font-size: 17px;
+
+        letter-spacing: 5px;
+
+        margin-top: 5px;
+    }
+
+    .logo small {
+
+        font-size: 5px;
+
+        letter-spacing: 2px;
+
+        margin-top: 7px;
+    }
+
+    .header-button {
+
+        display: none;
+    }
+
+
+    /* MENU */
+
+    .menu-btn {
+
+        display: flex;
+    }
+
+    .menu {
+
+        position: absolute;
+
+        top: 78px;
+
+        left: 0;
+
+        width: 100%;
+
+        margin: 0;
+
+        padding: 15px 5% 22px;
+
+        background: var(--cream);
+
+        border-bottom: 1px solid var(--border);
+
+        display: none;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 0;
+    }
+
+    .menu.active {
+
+        display: flex;
+    }
+
+    .menu a {
+
+        width: 100%;
+
+        padding: 14px 0;
+
+        border-bottom: 1px solid rgba(42, 27, 22, 0.08);
+    }
+
+    .menu a::after {
+
+        display: none;
+    }
+
+
+    /* HERO */
+
+    .hero {
+
+        min-height: auto;
+
+        padding: 55px 6% 65px;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 20px;
+    }
+
+    .hero-content {
+
+        width: 100%;
+
+        max-width: none;
+
+        text-align: left;
+    }
+
+    .hero-kicker {
+
+        font-size: 11px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 17px;
+    }
+
+    .hero-kicker span {
+
+        width: 23px;
+    }
+
+    .hero h1 {
+
+        font-size: clamp(3.5rem, 17vw, 5rem);
+
+        line-height: 0.87;
+
+        margin-bottom: 23px;
+    }
+
+    .hero-description {
+
+        font-size: 14px;
+
+        line-height: 1.6;
+
+        margin-bottom: 27px;
+    }
+
+    .hero-button {
+
+        padding: 15px 21px;
+
+        font-size: 12px;
+
+        gap: 20px;
+    }
+
+
+    /* FOTO HERO */
+
+    .hero-food {
+
+        width: 100%;
+
+        height: 360px;
+
+        margin-top: 15px;
+    }
+
+    .hero-circle {
+
+        width: 300px;
+    }
+
+    .hero-image {
+
+        width: 290px;
+
+        border-width: 8px;
+    }
+
+    .hero-stamp {
+
+        right: 2%;
+
+        bottom: 5px;
+
+        padding: 10px 16px;
+
+        font-size: 16px;
+
+        letter-spacing: 2px;
+    }
+
+
+    /* CARDÁPIO */
+
+    .menu-section {
+
+        padding: 60px 5% 70px;
+    }
+
+    .section-kicker {
+
+        font-size: 9px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .section-kicker span {
+
+        width: 20px;
+    }
+
+    .section-header h2 {
+
+        font-size: 4rem;
+    }
+
+
+    /* FILTROS */
+
+    .filters {
+
+        justify-content: flex-start;
+
+        flex-wrap: nowrap;
+
+        overflow-x: auto;
+
+        padding: 2px 0 10px;
+
+        margin-bottom: 25px;
+
+        scrollbar-width: none;
+    }
+
+    .filters::-webkit-scrollbar {
+
+        display: none;
+    }
+
+    .filter {
+
+        flex-shrink: 0;
+
+        padding: 9px 15px;
+
+        font-size: 10px;
+    }
+
+
+    /* PRODUTOS */
+
+    .products {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+    }
+
+    .product-image {
+
+        height: 245px;
+    }
+
+    .product-content {
+
+        padding: 17px 18px 19px;
+    }
+
+    .product-content h3 {
+
+        font-size: 29px;
+    }
+
+    .product-content p {
+
+        font-size: 12px;
+    }
+
+
+    /* FOOTER */
+
+    footer {
+
+        padding: 50px 6% 30px;
+    }
+
+    .footer-brand h2 {
+
+        font-size: 37px;
+    }
+
+    .footer-contact {
+
+        flex-direction: column;
+
+        gap: 12px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    .hero {
+
+        padding-left: 5%;
+
+        padding-right: 5%;
+    }
+
+    .hero h1 {
+
+        font-size: 3.25rem;
+    }
+
+    .hero-food {
+
+        height: 330px;
+    }
+
+    .hero-circle {
+
+        width: 270px;
+    }
+
+    .hero-image {
+
+        width: 260px;
+    }
+
+    .hero-stamp {
+
+        font-size: 13px;
+
+        padding: 9px 13px;
+    }
+
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+
+        transition: none !important;
+
+        animation: none !important;
+    }
+
+}
