@@ -1,2092 +1,1667 @@
 /* =========================================================
-   RETRO BURGER
-   PREMIUM AMERICAN DINER
-   ========================================================= */
-
+RETRO BURGER
+PREMIUM AMERICAN DINER
+========================================================= */
 
 /* =========================================================
-   VARIÁVEIS
-   ========================================================= */
+VARIÁVEIS
+========================================================= */
 
 :root {
 
-    --cream: #F4E8D0;
-    --cream-light: #FFF9EE;
-    --cream-dark: #E9D7B8;
-
-    --wine: #641E2A;
-    --wine-dark: #4A151E;
-
-    --brown: #2A1B16;
-    --brown-light: #695348;
-
-    --caramel: #B8753A;
-    --caramel-light: #D8B27F;
-
-    --olive: #5E6B45;
-
-    --border: rgba(42, 27, 22, 0.12);
+--cream: #F4E8D0;
+--cream-light: #FFF9EE;
+--cream-dark: #E9D7B8;
+--wine: #641E2A;
+--wine-dark: #4A151E;
+--brown: #2A1B16;
+--brown-light: #695348;
+--caramel: #B8753A;
+--caramel-light: #D8B27F;
+--olive: #5E6B45;
+--border: rgba(42, 27, 22, 0.12);
 
 }
 
-
 /* =========================================================
-   RESET
-   ========================================================= */
+RESET
+========================================================= */
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
+    }
 
 html {
-    scroll-behavior: smooth;
+scroll-behavior: smooth;
+scroll-padding-top: 90px;
 }
-
 
 body {
 
-    font-family: 'Inter', sans-serif;
-
-    background: var(--cream);
-
-    color: var(--brown);
-
-    overflow-x: hidden;
+font-family: 'Inter', sans-serif;
+background: var(--cream);
+color: var(--brown);
+overflow-x: hidden;
 
 }
-
 
 img {
-    max-width: 100%;
+max-width: 100%;
 }
-
 
 a {
-    color: inherit;
-    text-decoration: none;
+color: inherit;
+text-decoration: none;
 }
-
 
 button {
-    font-family: inherit;
+font-family: inherit;
 }
 
-
 /* =========================================================
-   TEXTURA SUTIL
-   ========================================================= */
+TEXTURA SUTIL
+========================================================= */
 
 body::before {
 
-    content: "";
-
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    z-index: -5;
-
-    opacity: 0.35;
-
-    background-image:
-        radial-gradient(
-            rgba(42, 27, 22, 0.08) 1px,
-            transparent 1px
-        );
-
-    background-size: 5px 5px;
+content: "";
+position: fixed;
+inset: 0;
+pointer-events: none;
+z-index: -5;
+opacity: 0.35;
+background-image:
+    radial-gradient(
+        rgba(42, 27, 22, 0.08) 1px,
+        transparent 1px
+    );
+background-size: 5px 5px;
 
 }
 
-
 /* =========================================================
-   FUNDO DECORATIVO
-   ========================================================= */
+FUNDO DECORATIVO
+========================================================= */
 
 .retro-background {
 
-    position: fixed;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    overflow: hidden;
-
-    z-index: -2;
-
-    opacity: 0.055;
+position: fixed;
+inset: 0;
+pointer-events: none;
+overflow: hidden;
+z-index: -2;
+opacity: 0.055;
 
 }
-
 
 .bg-food {
 
-    position: absolute;
-
-    border: 2px solid var(--wine);
+position: absolute;
+border: 2px solid var(--wine);
 
 }
-
 
 .bg-burger {
 
-    width: 110px;
-
-    height: 58px;
-
-    border-radius: 50%;
-
-    transform: rotate(-12deg);
+width: 110px;
+height: 58px;
+border-radius: 50%;
+transform: rotate(-12deg);
 
 }
-
 
 .bg-burger::before {
 
-    content: "";
-
-    position: absolute;
-
-    left: 8px;
-
-    right: 8px;
-
-    top: 25px;
-
-    height: 7px;
-
-    background: var(--wine);
-
-    border-radius: 5px;
+content: "";
+position: absolute;
+left: 8px;
+right: 8px;
+top: 25px;
+height: 7px;
+background: var(--wine);
+border-radius: 5px;
 
 }
-
 
 .bg-fries {
 
-    width: 58px;
-
-    height: 70px;
-
-    border-radius: 5px;
-
-    transform: rotate(12deg);
+width: 58px;
+height: 70px;
+border-radius: 5px;
+transform: rotate(12deg);
 
 }
-
 
 .bg-fries::before {
 
-    content: "";
-
-    position: absolute;
-
-    left: 8px;
-
-    right: 8px;
-
-    top: -18px;
-
-    height: 30px;
-
-    border-left: 5px solid var(--wine);
-
-    border-right: 5px solid var(--wine);
+content: "";
+position: absolute;
+left: 8px;
+right: 8px;
+top: -18px;
+height: 30px;
+border-left: 5px solid var(--wine);
+border-right: 5px solid var(--wine);
 
 }
-
 
 .bg-drink {
 
-    width: 50px;
-
-    height: 70px;
-
-    border-radius: 6px;
-
-    transform: rotate(-8deg);
+width: 50px;
+height: 70px;
+border-radius: 6px;
+transform: rotate(-8deg);
 
 }
-
 
 /* POSIÇÕES */
 
 .bg-1 {
-    top: 18%;
-    left: 3%;
+top: 18%;
+left: 3%;
 }
 
 .bg-2 {
-    top: 45%;
-    right: 3%;
+top: 45%;
+right: 3%;
 }
 
 .bg-3 {
-    top: 73%;
-    left: 8%;
+top: 73%;
+left: 8%;
 }
 
 .bg-4 {
-    top: 88%;
-    right: 10%;
+top: 88%;
+right: 10%;
 }
 
 .bg-5 {
-    top: 35%;
-    left: 46%;
+top: 35%;
+left: 46%;
 }
 
 .bg-6 {
-    top: 65%;
-    right: 44%;
+top: 65%;
+right: 44%;
 }
 
-
 /* =========================================================
-   HEADER
-   ========================================================= */
+HEADER
+========================================================= */
 
 .header {
 
-    position: sticky;
-
-    top: 0;
-
-    z-index: 1000;
-
-    width: 100%;
-
-    min-height: 88px;
-
-    padding: 12px 5%;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    background: rgba(244, 232, 208, 0.96);
-
-    border-bottom: 1px solid var(--border);
-
-    backdrop-filter: blur(14px);
+position: sticky;
+top: 0;
+z-index: 1000;
+width: 100%;
+min-height: 88px;
+padding: 12px 5%;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: rgba(244, 232, 208, 0.96);
+border-bottom: 1px solid var(--border);
+backdrop-filter: blur(14px);
 
 }
 
-
 /* =========================================================
-   LOGO
-   ========================================================= */
+LOGO
+========================================================= */
 
 .logo {
 
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-
-    line-height: 0.8;
-
-    color: var(--wine);
-
-    flex-shrink: 0;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+line-height: 0.8;
+color: var(--wine);
+flex-shrink: 0;
 
 }
-
 
 .logo strong {
 
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-size: 43px;
-
-    font-weight: 400;
-
-    letter-spacing: 5px;
+font-family: 'Bebas Neue', sans-serif;
+font-size: 43px;
+font-weight: 400;
+letter-spacing: 5px;
 
 }
-
 
 .logo span {
 
-    font-size: 21px;
-
-    font-weight: 800;
-
-    letter-spacing: 7px;
-
-    color: var(--brown);
-
-    margin-top: 6px;
+font-size: 21px;
+font-weight: 800;
+letter-spacing: 7px;
+color: var(--brown);
+margin-top: 6px;
 
 }
-
 
 .logo small {
 
-    color: var(--wine);
-
-    font-size: 7px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
-
-    margin-top: 9px;
-
-    align-self: center;
+color: var(--wine);
+font-size: 7px;
+font-weight: 800;
+letter-spacing: 3px;
+margin-top: 9px;
+align-self: center;
 
 }
 
-
 /* =========================================================
-   MENU DESKTOP
-   ========================================================= */
+MENU DESKTOP
+========================================================= */
 
 .menu {
 
-    display: flex;
-
-    align-items: center;
-
-    gap: 38px;
-
-    margin-left: auto;
-
-    margin-right: 42px;
+display: flex;
+align-items: center;
+gap: 38px;
+margin-left: auto;
+margin-right: 42px;
 
 }
-
 
 .menu a {
 
-    position: relative;
-
-    padding: 8px 0;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.5px;
-
-    color: var(--brown);
-
-    transition: color 0.25s ease;
+position: relative;
+padding: 8px 0;
+font-size: 13px;
+font-weight: 800;
+letter-spacing: 0.5px;
+color: var(--brown);
+transition: color 0.25s ease;
 
 }
-
 
 .menu a::after {
 
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-
-    bottom: 0;
-
-    width: 0;
-
-    height: 2px;
-
-    background: var(--wine);
-
-    transition: width 0.25s ease;
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+width: 0;
+height: 2px;
+background: var(--wine);
+transition: width 0.25s ease;
 
 }
-
 
 .menu a:hover,
 .menu a.active {
 
-    color: var(--wine);
+color: var(--wine);
 
 }
-
 
 .menu a:hover::after,
 .menu a.active::after {
 
-    width: 100%;
+width: 100%;
 
 }
 
-
 /* =========================================================
-   BOTÃO HEADER
-   ========================================================= */
+BOTÃO HEADER
+========================================================= */
 
 .header-button {
 
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-height: 46px;
-
-    padding: 0 24px;
-
-    background: var(--wine);
-
-    color: var(--cream-light);
-
-    border-radius: 4px;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
-
-    box-shadow: 0 7px 16px rgba(100, 30, 42, 0.14);
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-height: 46px;
+padding: 0 24px;
+background: var(--wine);
+color: var(--cream-light);
+border-radius: 4px;
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 1px;
+box-shadow: 0 7px 16px rgba(100, 30, 42, 0.14);
+transition:
+    transform 0.25s ease,
+    background 0.25s ease;
 
 }
-
 
 .header-button:hover {
 
-    background: var(--wine-dark);
-
-    transform: translateY(-2px);
+background: var(--wine-dark);
+transform: translateY(-2px);
 
 }
 
-
 /* =========================================================
-   BOTÃO MENU MOBILE
-   ========================================================= */
+BOTÃO MENU MOBILE
+========================================================= */
 
 .menu-btn {
 
-    display: none;
-
-    width: 44px;
-
-    height: 44px;
-
-    border: none;
-
-    background: transparent;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 5px;
-
-    cursor: pointer;
+display: none;
+width: 44px;
+height: 44px;
+border: none;
+background: transparent;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 5px;
+cursor: pointer;
 
 }
-
 
 .menu-btn span {
 
-    width: 25px;
-
-    height: 2px;
-
-    background: var(--brown);
-
-    transition: 0.3s ease;
+width: 25px;
+height: 2px;
+background: var(--brown);
+transition: 0.3s ease;
 
 }
 
+.menu-btn.active span:nth-child(1) {
+
+transform: translateY(7px) rotate(45deg);
+
+}
+
+.menu-btn.active span:nth-child(2) {
+
+opacity: 0;
+
+}
+
+.menu-btn.active span:nth-child(3) {
+
+transform: translateY(-7px) rotate(-45deg);
+
+}
 
 /* =========================================================
-   HERO
-   ========================================================= */
+HERO
+========================================================= */
 
 .hero {
 
-    position: relative;
-
-    min-height: calc(100vh - 88px);
-
-    padding: 55px 7% 70px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 50px;
-
-    overflow: hidden;
+position: relative;
+min-height: calc(100vh - 88px);
+padding: 55px 7% 70px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 50px;
+overflow: hidden;
 
 }
 
-
 /* =========================================================
-   HERO TEXTO
-   ========================================================= */
+HERO TEXTO
+========================================================= */
 
 .hero-content {
 
-    position: relative;
-
-    z-index: 5;
-
-    width: 48%;
-
-    max-width: 630px;
+position: relative;
+z-index: 5;
+width: 48%;
+max-width: 630px;
 
 }
-
 
 .hero-kicker {
 
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin-bottom: 20px;
-
-    color: var(--wine);
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 20px;
+color: var(--wine);
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 3px;
 
 }
-
 
 .hero-kicker span {
 
-    width: 30px;
-
-    height: 2px;
-
-    background: var(--wine);
+width: 30px;
+height: 2px;
+background: var(--wine);
 
 }
 
-
 /* =========================================================
-   TÍTULO HERO
-   ========================================================= */
+TÍTULO HERO
+========================================================= */
 
 .hero h1 {
 
-    max-width: 650px;
-
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-size: clamp(4.2rem, 6.5vw, 7rem);
-
-    font-weight: 400;
-
-    line-height: 0.86;
-
-    letter-spacing: 1px;
-
-    color: var(--brown);
-
-    margin-bottom: 28px;
+max-width: 650px;
+font-family: 'Bebas Neue', sans-serif;
+font-size: clamp(4.2rem, 6.5vw, 7rem);
+font-weight: 400;
+line-height: 0.86;
+letter-spacing: 1px;
+color: var(--brown);
+margin-bottom: 28px;
 
 }
-
 
 .hero h1 strong {
 
-    display: block;
-
-    position: relative;
-
-    margin-top: 9px;
-
-    color: var(--wine);
-
-    font-weight: 400;
+display: block;
+position: relative;
+margin-top: 9px;
+color: var(--wine);
+font-weight: 400;
 
 }
-
 
 .hero h1 strong::after {
 
-    content: "";
-
-    display: block;
-
-    width: 65px;
-
-    height: 4px;
-
-    margin-top: 18px;
-
-    background: var(--caramel);
+content: "";
+display: block;
+width: 65px;
+height: 4px;
+margin-top: 18px;
+background: var(--caramel);
 
 }
 
-
 /* =========================================================
-   DESCRIÇÃO HERO
-   ========================================================= */
+DESCRIÇÃO HERO
+========================================================= */
 
 .hero-description {
 
-    max-width: 500px;
-
-    margin-bottom: 32px;
-
-    color: var(--brown-light);
-
-    font-size: 16px;
-
-    line-height: 1.7;
+max-width: 500px;
+margin-bottom: 32px;
+color: var(--brown-light);
+font-size: 16px;
+line-height: 1.7;
 
 }
 
-
 /* =========================================================
-   BOTÃO HERO
-   ========================================================= */
+BOTÃO HERO
+========================================================= */
 
 .hero-button {
 
-    position: relative;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 28px;
-
-    min-width: 175px;
-
-    padding: 16px 20px;
-
-    overflow: hidden;
-
-    background: var(--wine);
-
-    color: var(--cream-light);
-
-    border-radius: 4px;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
-
-    box-shadow:
-        0 9px 22px rgba(100, 30, 42, 0.16);
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+position: relative;
+display: inline-flex;
+align-items: center;
+justify-content: space-between;
+gap: 28px;
+min-width: 175px;
+padding: 16px 20px;
+overflow: hidden;
+background: var(--wine);
+color: var(--cream-light);
+border-radius: 4px;
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 1px;
+box-shadow:
+    0 9px 22px rgba(100, 30, 42, 0.16);
+transition:
+    transform 0.25s ease,
+    background 0.25s ease;
 
 }
-
 
 .hero-button::before {
 
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    background: rgba(255, 255, 255, 0.08);
-
-    transform: translateX(-100%);
-
-    transition: transform 0.35s ease;
+content: "";
+position: absolute;
+inset: 0;
+background: rgba(255, 255, 255, 0.08);
+transform: translateX(-100%);
+transition: transform 0.35s ease;
 
 }
-
 
 .hero-button:hover::before {
 
-    transform: translateX(0);
+transform: translateX(0);
 
 }
-
 
 .hero-button:hover {
 
-    background: var(--wine-dark);
-
-    transform: translateY(-3px);
+background: var(--wine-dark);
+transform: translateY(-3px);
 
 }
-
 
 .hero-button-text,
 .hero-arrow {
 
-    position: relative;
-
-    z-index: 2;
+position: relative;
+z-index: 2;
 
 }
-
 
 .hero-arrow {
 
-    font-size: 21px;
-
-    line-height: 0;
+font-size: 21px;
+line-height: 0;
 
 }
 
-
 /* =========================================================
-   HERO FOTO
-   ========================================================= */
+HERO FOTO
+========================================================= */
 
 .hero-food {
 
-    position: relative;
-
-    width: 52%;
-
-    max-width: 650px;
-
-    height: 570px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-shrink: 0;
+position: relative;
+width: 52%;
+max-width: 650px;
+height: 570px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
 
 }
-
-
-/* =========================================================
-   CÍRCULO DE FUNDO
-   ========================================================= */
 
 .hero-circle {
 
-    position: absolute;
-
-    width: min(92%, 560px);
-
-    aspect-ratio: 1;
-
-    border-radius: 50%;
-
-    background: var(--caramel);
-
-    opacity: 0.38;
-
-    transform: scale(1.02);
+position: absolute;
+width: min(92%, 560px);
+aspect-ratio: 1;
+border-radius: 50%;
+background: var(--caramel);
+opacity: 0.38;
+transform: scale(1.02);
 
 }
-
-
-/* =========================================================
-   FOTO
-   ========================================================= */
 
 .hero-image {
 
-    position: relative;
-
-    z-index: 2;
-
-    width: min(88%, 550px);
-
-    aspect-ratio: 1;
-
-    overflow: hidden;
-
-    border: 10px solid var(--cream);
-
-    border-radius: 50%;
-
-    box-shadow:
-        0 25px 55px rgba(42, 27, 22, 0.20);
+position: relative;
+z-index: 2;
+width: min(88%, 550px);
+aspect-ratio: 1;
+overflow: hidden;
+border: 10px solid var(--cream);
+border-radius: 50%;
+box-shadow:
+    0 25px 55px rgba(42, 27, 22, 0.20);
 
 }
-
 
 .hero-image img {
 
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    transition: transform 0.7s ease;
+width: 100%;
+height: 100%;
+display: block;
+object-fit: cover;
+object-position: center;
+transition: transform 0.7s ease;
 
 }
-
 
 .hero-image:hover img {
 
-    transform: scale(1.045);
+transform: scale(1.045);
 
 }
 
-
 /* =========================================================
-   SELO
-   ========================================================= */
+SELO
+========================================================= */
 
 .hero-stamp {
 
-    position: absolute;
-
-    right: 2%;
-
-    bottom: 45px;
-
-    z-index: 5;
-
-    padding: 13px 21px;
-
-    background: var(--wine);
-
-    color: var(--cream-light);
-
-    border: 2px solid var(--cream);
-
-    outline: 2px solid var(--wine);
-
-    outline-offset: -6px;
-
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-size: 20px;
-
-    letter-spacing: 3px;
-
-    transform: rotate(-4deg);
-
-    box-shadow:
-        7px 7px 0 rgba(42, 27, 22, 0.12);
+position: absolute;
+right: 2%;
+bottom: 45px;
+z-index: 5;
+padding: 13px 21px;
+background: var(--wine);
+color: var(--cream-light);
+border: 2px solid var(--cream);
+outline: 2px solid var(--wine);
+outline-offset: -6px;
+font-family: 'Bebas Neue', sans-serif;
+font-size: 20px;
+letter-spacing: 3px;
+transform: rotate(-4deg);
+box-shadow:
+    7px 7px 0 rgba(42, 27, 22, 0.12);
 
 }
 
-
 /* =========================================================
-   TEXTO LATERAL
-   ========================================================= */
+TEXTO LATERAL
+========================================================= */
 
 .hero-side-text {
 
-    position: absolute;
-
-    left: 7%;
-
-    bottom: 25px;
-
-    color: rgba(100, 30, 42, 0.42);
-
-    font-size: 8px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
-
-    transform: rotate(-90deg);
-
-    transform-origin: left bottom;
+position: absolute;
+left: 7%;
+bottom: 25px;
+color: rgba(100, 30, 42, 0.42);
+font-size: 8px;
+font-weight: 800;
+letter-spacing: 3px;
+transform: rotate(-90deg);
+transform-origin: left bottom;
 
 }
 
-
 /* =========================================================
-   CARDÁPIO
-   ========================================================= */
+CARDÁPIO
+========================================================= */
 
 .menu-section {
 
-    position: relative;
-
-    padding: 85px 5% 105px;
-
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(244, 232, 208, 0.72),
-            rgba(244, 232, 208, 0.96)
-        );
-
-    border-top: 1px solid rgba(42, 27, 22, 0.08);
+position: relative;
+padding: 85px 5% 105px;
+background:
+    linear-gradient(
+        to bottom,
+        rgba(244, 232, 208, 0.72),
+        rgba(244, 232, 208, 0.96)
+    );
+border-top: 1px solid rgba(42, 27, 22, 0.08);
 
 }
 
-
 /* =========================================================
-   CABEÇALHO CARDÁPIO
-   ========================================================= */
+CABEÇALHOS DE SEÇÃO
+========================================================= */
 
 .section-header {
 
-    text-align: center;
-
-    margin-bottom: 30px;
+text-align: center;
+margin-bottom: 30px;
 
 }
-
 
 .section-kicker {
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 12px;
-
-    margin-bottom: 8px;
-
-    color: var(--wine);
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 2px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 12px;
+margin-bottom: 8px;
+color: var(--wine);
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 2px;
 
 }
-
 
 .section-kicker span {
 
-    width: 27px;
-
-    height: 2px;
-
-    background: var(--wine);
+width: 27px;
+height: 2px;
+background: var(--wine);
 
 }
-
 
 .section-header h2 {
 
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-size: clamp(4.2rem, 7vw, 6.5rem);
-
-    font-weight: 400;
-
-    line-height: 0.9;
-
-    letter-spacing: 2px;
-
-    color: var(--brown);
+font-family: 'Bebas Neue', sans-serif;
+font-size: clamp(4.2rem, 7vw, 6.5rem);
+font-weight: 400;
+line-height: 0.9;
+letter-spacing: 2px;
+color: var(--brown);
 
 }
-
 
 .section-line {
 
-    width: 45px;
-
-    height: 3px;
-
-    margin: 13px auto 0;
-
-    background: var(--wine);
+width: 45px;
+height: 3px;
+margin: 13px auto 0;
+background: var(--wine);
 
 }
 
-
 /* =========================================================
-   FILTROS
-   ========================================================= */
+FILTROS
+========================================================= */
 
 .filters {
 
-    max-width: 1200px;
-
-    margin: 0 auto 38px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
+max-width: 1200px;
+margin: 0 auto 38px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-wrap: wrap;
+gap: 10px;
 
 }
-
 
 .filter {
 
-    padding: 10px 18px;
-
-    border: 1px solid #CDAF82;
-
-    border-radius: 5px;
-
-    background: transparent;
-
-    color: var(--brown);
-
-    font-size: 11px;
-
-    font-weight: 800;
-
-    letter-spacing: 0.5px;
-
-    cursor: pointer;
-
-    transition:
-        background 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease,
-        transform 0.25s ease;
+padding: 10px 18px;
+border: 1px solid #CDAF82;
+border-radius: 5px;
+background: transparent;
+color: var(--brown);
+font-size: 11px;
+font-weight: 800;
+letter-spacing: 0.5px;
+cursor: pointer;
+transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease;
 
 }
-
 
 .filter:hover {
 
-    color: var(--wine);
-
-    border-color: var(--wine);
-
-    transform: translateY(-2px);
+color: var(--wine);
+border-color: var(--wine);
+transform: translateY(-2px);
 
 }
-
 
 .filter.active {
 
-    background: var(--wine);
-
-    border-color: var(--wine);
-
-    color: var(--cream-light);
+background: var(--wine);
+border-color: var(--wine);
+color: var(--cream-light);
 
 }
 
-
 /* =========================================================
-   GRID PRODUTOS
-   ========================================================= */
+GRID PRODUTOS
+========================================================= */
 
 .products {
 
-    width: 100%;
-
-    max-width: 1400px;
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-
-    gap: 20px;
+width: 100%;
+max-width: 1400px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(3, minmax(0, 1fr));
+gap: 20px;
 
 }
 
-
 /* =========================================================
-   CARD
-   ========================================================= */
+CARD
+========================================================= */
 
 .product-card {
 
-    position: relative;
-
-    overflow: hidden;
-
-    background: var(--cream-light);
-
-    border: 1px solid rgba(42, 27, 22, 0.10);
-
-    border-radius: 10px;
-
-    box-shadow:
-        0 8px 24px rgba(42, 27, 22, 0.07);
-
-    transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+position: relative;
+overflow: hidden;
+background: var(--cream-light);
+border: 1px solid rgba(42, 27, 22, 0.10);
+border-radius: 10px;
+box-shadow:
+    0 8px 24px rgba(42, 27, 22, 0.07);
+transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 
 }
-
 
 .product-card:hover {
 
-    transform: translateY(-6px);
-
-    box-shadow:
-        0 18px 38px rgba(42, 27, 22, 0.13);
+transform: translateY(-6px);
+box-shadow:
+    0 18px 38px rgba(42, 27, 22, 0.13);
 
 }
 
-
 /* =========================================================
-   FOTO DO CARD
-   ========================================================= */
+FOTO DO CARD
+========================================================= */
 
 .product-image {
 
-    position: relative;
-
-    width: 100%;
-
-    height: 285px;
-
-    overflow: hidden;
-
-    background: var(--caramel-light);
+position: relative;
+width: 100%;
+height: 285px;
+overflow: hidden;
+background: var(--caramel-light);
 
 }
-
 
 .product-image::after {
 
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    pointer-events: none;
-
-    background:
-        linear-gradient(
-            to bottom,
-            transparent 60%,
-            rgba(42, 27, 22, 0.10)
-        );
+content: "";
+position: absolute;
+inset: 0;
+pointer-events: none;
+background:
+    linear-gradient(
+        to bottom,
+        transparent 60%,
+        rgba(42, 27, 22, 0.10)
+    );
 
 }
-
 
 .product-image img {
 
-    width: 100%;
-
-    height: 100%;
-
-    display: block;
-
-    object-fit: cover;
-
-    object-position: center;
-
-    transition: transform 0.6s ease;
+width: 100%;
+height: 100%;
+display: block;
+object-fit: cover;
+object-position: center;
+transition: transform 0.6s ease;
 
 }
-
 
 .product-card:hover .product-image img {
 
-    transform: scale(1.045);
+transform: scale(1.045);
 
 }
 
-
 /* =========================================================
-   CONTEÚDO CARD
-   ========================================================= */
+CONTEÚDO CARD
+========================================================= */
 
 .product-content {
 
-    padding: 20px 21px 22px;
+padding: 20px 21px 22px;
 
 }
-
-
-/* =========================================================
-   TOPO DO CARD
-   ========================================================= */
 
 .product-top {
 
-    display: flex;
-
-    align-items: center;
-
-    min-height: 18px;
-
-    margin-bottom: 10px;
+display: flex;
+align-items: center;
+min-height: 18px;
+margin-bottom: 10px;
 
 }
-
 
 .product-number {
 
-    flex-shrink: 0;
-
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-size: 18px;
-
-    letter-spacing: 1px;
-
-    color: #8C7057;
+flex-shrink: 0;
+font-family: 'Bebas Neue', sans-serif;
+font-size: 18px;
+letter-spacing: 1px;
+color: #8C7057;
 
 }
-
 
 .product-top::after {
 
-    content: "";
-
-    flex: 1;
-
-    height: 1px;
-
-    margin: 0 12px;
-
-    background: #D5C1A2;
+content: "";
+flex: 1;
+height: 1px;
+margin: 0 12px;
+background: #D5C1A2;
 
 }
-
 
 .stars {
 
-    flex-shrink: 0;
-
-    color: var(--wine);
-
-    font-size: 11px;
-
-    letter-spacing: 2px;
+flex-shrink: 0;
+color: var(--wine);
+font-size: 11px;
+letter-spacing: 2px;
 
 }
-
-
-/* =========================================================
-   NOME PRODUTO
-   ========================================================= */
 
 .product-content h3 {
 
-    margin-bottom: 10px;
-
-    color: var(--brown);
-
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-size: 33px;
-
-    font-weight: 400;
-
-    line-height: 0.95;
-
-    letter-spacing: 1px;
+margin-bottom: 10px;
+color: var(--brown);
+font-family: 'Bebas Neue', sans-serif;
+font-size: 33px;
+font-weight: 400;
+line-height: 0.95;
+letter-spacing: 1px;
 
 }
-
-
-/* =========================================================
-   DESCRIÇÃO
-   ========================================================= */
 
 .product-content p {
 
-    min-height: 42px;
-
-    margin-bottom: 19px;
-
-    color: var(--brown-light);
-
-    font-size: 13px;
-
-    line-height: 1.55;
+min-height: 42px;
+margin-bottom: 19px;
+color: var(--brown-light);
+font-size: 13px;
+line-height: 1.55;
 
 }
-
-
-/* =========================================================
-   PARTE INFERIOR
-   ========================================================= */
 
 .product-bottom {
 
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 15px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 15px;
 
 }
-
 
 .product-bottom strong {
 
-    color: var(--wine);
-
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-size: 30px;
-
-    font-weight: 400;
-
-    letter-spacing: 1px;
+color: var(--wine);
+font-family: 'Bebas Neue', sans-serif;
+font-size: 30px;
+font-weight: 400;
+letter-spacing: 1px;
 
 }
 
-
 /* =========================================================
-   BOTÃO +
-   ========================================================= */
+BOTÃO +
+========================================================= */
 
 .add-btn {
 
-    width: 44px;
-
-    height: 44px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-shrink: 0;
-
-    border: none;
-
-    border-radius: 5px;
-
-    background: var(--wine);
-
-    color: var(--cream-light);
-
-    font-size: 27px;
-
-    font-weight: 400;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.25s ease,
-        background 0.25s ease;
+width: 44px;
+height: 44px;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+border: none;
+border-radius: 5px;
+background: var(--wine);
+color: var(--cream-light);
+font-size: 27px;
+font-weight: 400;
+line-height: 1;
+cursor: pointer;
+transition:
+    transform 0.25s ease,
+    background 0.25s ease;
 
 }
-
 
 .add-btn:hover {
 
-    background: var(--wine-dark);
-
-    transform: scale(1.07);
+background: var(--wine-dark);
+transform: scale(1.07);
 
 }
 
+/* =========================================================
+SOBRE
+========================================================= */
+
+.about-section {
+
+position: relative;
+padding: 100px 7%;
+background: var(--brown);
+color: var(--cream);
+overflow: hidden;
+
+}
+
+.about-section::before {
+
+content: "1978";
+position: absolute;
+right: -20px;
+bottom: -80px;
+font-family: 'Bebas Neue', sans-serif;
+font-size: 260px;
+line-height: 1;
+color: rgba(244, 232, 208, 0.035);
+pointer-events: none;
+
+}
+
+.about-content {
+
+position: relative;
+z-index: 2;
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: 1.4fr 0.8fr;
+align-items: center;
+gap: 80px;
+
+}
+
+.about-kicker {
+
+justify-content: flex-start;
+color: var(--caramel-light);
+
+}
+
+.about-kicker span {
+
+background: var(--caramel-light);
+
+}
+
+.about-text h2 {
+
+max-width: 700px;
+margin: 20px 0 25px;
+font-family: 'Bebas Neue', sans-serif;
+font-size: clamp(3.5rem, 6vw, 6rem);
+font-weight: 400;
+line-height: 0.9;
+letter-spacing: 1px;
+
+}
+
+.about-text h2 strong {
+
+display: block;
+color: var(--caramel-light);
+font-weight: 400;
+
+}
+
+.about-text > p {
+
+max-width: 650px;
+margin-bottom: 15px;
+color: #D7C9B1;
+font-size: 15px;
+line-height: 1.75;
+
+}
+
+.about-highlight {
+
+display: flex;
+align-items: center;
+gap: 12px;
+margin-top: 30px;
+font-family: 'Bebas Neue', sans-serif;
+font-size: 25px;
+letter-spacing: 2px;
+
+}
+
+.about-highlight strong {
+
+color: var(--cream);
+
+}
+
+.about-highlight span {
+
+color: var(--caramel-light);
+
+}
+
+.about-card {
+
+min-height: 350px;
+padding: 40px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+border: 2px solid rgba(216, 178, 127, 0.45);
+outline: 1px solid rgba(216, 178, 127, 0.2);
+outline-offset: -12px;
+background:
+    radial-gradient(
+        circle,
+        rgba(184, 117, 58, 0.12),
+        transparent 70%
+    );
+
+}
+
+.about-card-star {
+
+color: var(--caramel-light);
+font-size: 30px;
+margin-bottom: 10px;
+
+}
+
+.about-card strong {
+
+font-family: 'Bebas Neue', sans-serif;
+font-size: 65px;
+font-weight: 400;
+line-height: 0.8;
+letter-spacing: 5px;
+color: var(--cream);
+
+}
+
+.about-card > span {
+
+font-size: 25px;
+font-weight: 800;
+letter-spacing: 8px;
+margin-top: 10px;
+color: var(--caramel-light);
+
+}
+
+.about-card small {
+
+margin-top: 25px;
+font-size: 9px;
+font-weight: 800;
+letter-spacing: 4px;
+color: #C8B79C;
+
+}
+
+.about-card-line {
+
+width: 50px;
+height: 2px;
+margin: 20px 0;
+background: var(--caramel-light);
+
+}
+
+.about-card p {
+
+font-family: 'Bebas Neue', sans-serif;
+font-size: 22px;
+letter-spacing: 3px;
+color: var(--cream);
+
+}
 
 /* =========================================================
-   FOOTER
-   ========================================================= */
+CONTATO
+========================================================= */
+
+.contact-section {
+
+padding: 90px 5% 105px;
+background: var(--cream-light);
+
+}
+
+.contact-grid {
+
+max-width: 1200px;
+margin: 0 auto;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 18px;
+
+}
+
+.contact-card {
+
+min-height: 220px;
+padding: 28px 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+background: var(--cream);
+border: 1px solid rgba(42, 27, 22, 0.10);
+border-radius: 8px;
+transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+}
+
+.contact-card:hover {
+
+transform: translateY(-5px);
+border-color: rgba(100, 30, 42, 0.25);
+box-shadow:
+    0 15px 30px rgba(42, 27, 22, 0.10);
+
+}
+
+.contact-icon {
+
+font-size: 28px;
+margin-bottom: 15px;
+
+}
+
+.contact-card small {
+
+margin-bottom: 6px;
+color: var(--wine);
+font-size: 9px;
+font-weight: 800;
+letter-spacing: 2px;
+
+}
+
+.contact-card strong {
+
+color: var(--brown);
+font-family: 'Bebas Neue', sans-serif;
+font-size: 27px;
+font-weight: 400;
+letter-spacing: 1px;
+
+}
+
+.contact-card > span:last-child {
+
+max-width: 190px;
+margin-top: 8px;
+color: var(--brown-light);
+font-size: 11px;
+line-height: 1.5;
+
+}
+
+/* =========================================================
+FOOTER
+========================================================= */
 
 footer {
 
-    padding: 65px 7% 35px;
-
-    background: var(--brown);
-
-    color: var(--cream);
+padding: 65px 7% 35px;
+background: var(--brown);
+color: var(--cream);
 
 }
-
 
 .footer-content {
 
-    max-width: 1200px;
-
-    margin: 0 auto;
-
-    text-align: center;
+max-width: 1200px;
+margin: 0 auto;
+text-align: center;
 
 }
-
 
 .footer-brand h2 {
 
-    color: var(--cream);
-
-    font-family: 'Bebas Neue', sans-serif;
-
-    font-size: 45px;
-
-    font-weight: 400;
-
-    letter-spacing: 4px;
+color: var(--cream);
+font-family: 'Bebas Neue', sans-serif;
+font-size: 45px;
+font-weight: 400;
+letter-spacing: 4px;
 
 }
-
 
 .footer-brand p {
 
-    margin-top: 6px;
-
-    color: #CDAF82;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 2px;
+margin-top: 6px;
+color: #CDAF82;
+font-size: 12px;
+font-weight: 700;
+letter-spacing: 2px;
 
 }
-
 
 .footer-contact {
 
-    display: flex;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 30px;
-
-    margin: 30px 0;
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+gap: 30px;
+margin: 30px 0;
 
 }
 
+.footer-contact a {
 
-.footer-contact p {
-
-    color: var(--cream-dark);
-
-    font-size: 13px;
+color: var(--cream-dark);
+font-size: 12px;
+font-weight: 800;
+letter-spacing: 1px;
+transition: color 0.25s ease;
 
 }
 
+.footer-contact a:hover {
+
+color: var(--caramel-light);
+
+}
 
 footer small {
 
-    display: block;
-
-    padding-top: 25px;
-
-    border-top: 1px solid rgba(244, 232, 208, 0.15);
-
-    color: #BDAA8B;
-
-    font-size: 11px;
+display: block;
+padding-top: 25px;
+border-top: 1px solid rgba(244, 232, 208, 0.15);
+color: #BDAA8B;
+font-size: 11px;
 
 }
 
-
 /* =========================================================
-   TABLET
-   ========================================================= */
+TABLET
+========================================================= */
 
 @media (max-width: 1100px) {
 
-
-    .header {
-
-        padding-left: 4%;
-
-        padding-right: 4%;
-
-    }
-
-
-    .menu {
-
-        gap: 23px;
-
-        margin-right: 25px;
-
-    }
-
-
-    .header-button {
-
-        padding-left: 18px;
-
-        padding-right: 18px;
-
-    }
-
-
-    .hero {
-
-        padding-left: 5%;
-
-        padding-right: 5%;
-
-        gap: 25px;
-
-    }
-
-
-    .hero h1 {
-
-        font-size: clamp(3.8rem, 6vw, 5.5rem);
-
-    }
-
-
-    .hero-food {
-
-        height: 500px;
-
-    }
-
-
-    .products {
-
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-
-    }
-
+.header {
+    padding-left: 4%;
+    padding-right: 4%;
+}
+.menu {
+    gap: 23px;
+    margin-right: 25px;
+}
+.header-button {
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.hero {
+    padding-left: 5%;
+    padding-right: 5%;
+    gap: 25px;
+}
+.hero h1 {
+    font-size: clamp(3.8rem, 6vw, 5.5rem);
+}
+.hero-food {
+    height: 500px;
+}
+.products {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.contact-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+.about-content {
+    gap: 50px;
+}
 
 }
 
-
 /* =========================================================
-   MOBILE
-   ========================================================= */
+MOBILE
+========================================================= */
 
 @media (max-width: 767px) {
 
-
-    /* HEADER */
-
-    .header {
-
-        min-height: 76px;
-
-        padding: 9px 5%;
-
-    }
-
-
-    .logo strong {
-
-        font-size: 34px;
-
-        letter-spacing: 4px;
-
-    }
-
-
-    .logo span {
-
-        font-size: 16px;
-
-        letter-spacing: 5px;
-
-        margin-top: 5px;
-
-    }
-
-
-    .logo small {
-
-        font-size: 5px;
-
-        letter-spacing: 2px;
-
-        margin-top: 7px;
-
-    }
-
-
-    .header-button {
-
-        display: none;
-
-    }
-
-
-    /* MENU MOBILE */
-
-    .menu-btn {
-
-        display: flex;
-
-    }
-
-
-    .menu {
-
-        position: absolute;
-
-        top: 76px;
-
-        left: 0;
-
-        width: 100%;
-
-        margin: 0;
-
-        padding: 12px 5% 18px;
-
-        display: none;
-
-        flex-direction: column;
-
-        align-items: flex-start;
-
-        gap: 0;
-
-        background: rgba(244, 232, 208, 0.98);
-
-        border-bottom: 1px solid var(--border);
-
-        backdrop-filter: blur(12px);
-
-    }
-
-
-    .menu.active {
-
-        display: flex;
-
-    }
-
-
-    .menu a {
-
-        width: 100%;
-
-        padding: 13px 0;
-
-        border-bottom: 1px solid rgba(42, 27, 22, 0.08);
-
-    }
-
-
-    .menu a::after {
-
-        display: none;
-
-    }
-
-
-    /* HERO */
-
-    .hero {
-
-        min-height: auto;
-
-        padding: 50px 6% 60px;
-
-        flex-direction: column;
-
-        align-items: stretch;
-
-        gap: 10px;
-
-    }
-
-
-    .hero-content {
-
-        width: 100%;
-
-        max-width: none;
-
-    }
-
-
-    .hero-kicker {
-
-        gap: 9px;
-
-        margin-bottom: 17px;
-
-        font-size: 10px;
-
-        letter-spacing: 2px;
-
-    }
-
-
-    .hero-kicker span {
-
-        width: 21px;
-
-    }
-
-
-    .hero h1 {
-
-        max-width: 100%;
-
-        margin-bottom: 22px;
-
-        font-size: clamp(3.35rem, 15.5vw, 4.8rem);
-
-        line-height: 0.87;
-
-    }
-
-
-    .hero h1 strong {
-
-        margin-top: 7px;
-
-    }
-
-
-    .hero h1 strong::after {
-
-        width: 48px;
-
-        height: 3px;
-
-        margin-top: 13px;
-
-    }
-
-
-    .hero-description {
-
-        max-width: 100%;
-
-        margin-bottom: 25px;
-
-        font-size: 13px;
-
-        line-height: 1.65;
-
-    }
-
-
-    .hero-button {
-
-        min-width: 160px;
-
-        padding: 14px 18px;
-
-        font-size: 11px;
-
-    }
-
-
-    /* FOTO HERO */
-
-    .hero-food {
-
-        width: 100%;
-
-        height: 350px;
-
-        margin-top: 15px;
-
-    }
-
-
-    .hero-circle {
-
-        width: 290px;
-
-    }
-
-
-    .hero-image {
-
-        width: 280px;
-
-        border-width: 7px;
-
-    }
-
-
-    .hero-stamp {
-
-        right: 1%;
-
-        bottom: 3px;
-
-        padding: 10px 15px;
-
-        font-size: 15px;
-
-        letter-spacing: 2px;
-
-    }
-
-
-    .hero-side-text {
-
-        display: none;
-
-    }
-
-
-    /* CARDÁPIO */
-
-    .menu-section {
-
-        padding: 60px 5% 75px;
-
-    }
-
-
-    .section-header {
-
-        margin-bottom: 25px;
-
-    }
-
-
-    .section-kicker {
-
-        gap: 8px;
-
-        font-size: 8px;
-
-        letter-spacing: 1.4px;
-
-    }
-
-
-    .section-kicker span {
-
-        width: 19px;
-
-    }
-
-
-    .section-header h2 {
-
-        font-size: 4rem;
-
-    }
-
-
-    /* FILTROS */
-
-    .filters {
-
-        justify-content: flex-start;
-
-        flex-wrap: nowrap;
-
-        overflow-x: auto;
-
-        margin-bottom: 25px;
-
-        padding: 2px 0 9px;
-
-        scrollbar-width: none;
-
-    }
-
-
-    .filters::-webkit-scrollbar {
-
-        display: none;
-
-    }
-
-
-    .filter {
-
-        flex-shrink: 0;
-
-        padding: 9px 14px;
-
-        font-size: 9px;
-
-    }
-
-
-    /* PRODUTOS */
-
-    .products {
-
-        grid-template-columns: 1fr;
-
-        gap: 18px;
-
-    }
-
-
-    .product-image {
-
-        height: 255px;
-
-    }
-
-
-    .product-content {
-
-        padding: 18px 18px 20px;
-
-    }
-
-
-    .product-content h3 {
-
-        font-size: 30px;
-
-    }
-
-
-    .product-content p {
-
-        font-size: 12px;
-
-    }
-
-
-    .product-bottom strong {
-
-        font-size: 28px;
-
-    }
-
-
-    /* FOOTER */
-
-    footer {
-
-        padding: 50px 6% 30px;
-
-    }
-
-
-    .footer-brand h2 {
-
-        font-size: 37px;
-
-    }
-
-
-    .footer-contact {
-
-        flex-direction: column;
-
-        gap: 12px;
-
-        margin: 25px 0;
-
-    }
-
+html {
+    scroll-padding-top: 76px;
+}
+/* HEADER */
+.header {
+    min-height: 76px;
+    padding: 9px 5%;
+}
+.logo strong {
+    font-size: 34px;
+    letter-spacing: 4px;
+}
+.logo span {
+    font-size: 16px;
+    letter-spacing: 5px;
+    margin-top: 5px;
+}
+.logo small {
+    font-size: 5px;
+    letter-spacing: 2px;
+    margin-top: 7px;
+}
+.header-button {
+    display: none;
+}
+/* MENU MOBILE */
+.menu-btn {
+    display: flex;
+}
+.menu {
+    position: absolute;
+    top: 76px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 12px 5% 18px;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    background: rgba(244, 232, 208, 0.98);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+}
+.menu.active {
+    display: flex;
+}
+.menu a {
+    width: 100%;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(42, 27, 22, 0.08);
+}
+.menu a::after {
+    display: none;
+}
+/* HERO */
+.hero {
+    min-height: auto;
+    padding: 50px 6% 60px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+}
+.hero-content {
+    width: 100%;
+    max-width: none;
+}
+.hero-kicker {
+    gap: 9px;
+    margin-bottom: 17px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+.hero-kicker span {
+    width: 21px;
+}
+.hero h1 {
+    max-width: 100%;
+    margin-bottom: 22px;
+    font-size: clamp(3.35rem, 15.5vw, 4.8rem);
+    line-height: 0.87;
+}
+.hero h1 strong {
+    margin-top: 7px;
+}
+.hero h1 strong::after {
+    width: 48px;
+    height: 3px;
+    margin-top: 13px;
+}
+.hero-description {
+    max-width: 100%;
+    margin-bottom: 25px;
+    font-size: 13px;
+    line-height: 1.65;
+}
+.hero-button {
+    min-width: 160px;
+    padding: 14px 18px;
+    font-size: 11px;
+}
+/* FOTO HERO */
+.hero-food {
+    width: 100%;
+    height: 350px;
+    margin-top: 15px;
+}
+.hero-circle {
+    width: 290px;
+}
+.hero-image {
+    width: 280px;
+    border-width: 7px;
+}
+.hero-stamp {
+    right: 1%;
+    bottom: 3px;
+    padding: 10px 15px;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+.hero-side-text {
+    display: none;
+}
+/* CARDÁPIO */
+.menu-section {
+    padding: 60px 5% 75px;
+}
+.section-header {
+    margin-bottom: 25px;
+}
+.section-kicker {
+    gap: 8px;
+    font-size: 8px;
+    letter-spacing: 1.4px;
+}
+.section-kicker span {
+    width: 19px;
+}
+.section-header h2 {
+    font-size: 4rem;
+}
+/* FILTROS */
+.filters {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-bottom: 25px;
+    padding: 2px 0 9px;
+    scrollbar-width: none;
+}
+.filters::-webkit-scrollbar {
+    display: none;
+}
+.filter {
+    flex-shrink: 0;
+    padding: 9px 14px;
+    font-size: 9px;
+}
+/* PRODUTOS */
+.products {
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+.product-image {
+    height: 255px;
+}
+.product-content {
+    padding: 18px 18px 20px;
+}
+.product-content h3 {
+    font-size: 30px;
+}
+.product-content p {
+    font-size: 12px;
+}
+.product-bottom strong {
+    font-size: 28px;
+}
+/* SOBRE */
+.about-section {
+    padding: 70px 6%;
+}
+.about-content {
+    grid-template-columns: 1fr;
+    gap: 45px;
+}
+.about-text h2 {
+    font-size: clamp(3.2rem, 14vw, 4.5rem);
+}
+.about-text > p {
+    font-size: 13px;
+    line-height: 1.7;
+}
+.about-card {
+    min-height: 300px;
+    padding: 30px;
+}
+.about-card strong {
+    font-size: 55px;
+}
+.about-card > span {
+    font-size: 20px;
+    letter-spacing: 6px;
+}
+/* CONTATO */
+.contact-section {
+    padding: 65px 5% 75px;
+}
+.contact-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+.contact-card {
+    min-height: 190px;
+}
+/* FOOTER */
+footer {
+    padding: 50px 6% 30px;
+}
+.footer-brand h2 {
+    font-size: 37px;
+}
+.footer-contact {
+    flex-direction: column;
+    gap: 12px;
+    margin: 25px 0;
+}
 
 }
 
-
 /* =========================================================
-   CELULARES PEQUENOS
-   ========================================================= */
+CELULARES PEQUENOS
+========================================================= */
 
 @media (max-width: 390px) {
 
-
-    .hero {
-
-        padding-left: 5%;
-
-        padding-right: 5%;
-
-    }
-
-
-    .hero h1 {
-
-        font-size: 3.15rem;
-
-    }
-
-
-    .hero-food {
-
-        height: 325px;
-
-    }
-
-
-    .hero-circle {
-
-        width: 260px;
-
-    }
-
-
-    .hero-image {
-
-        width: 250px;
-
-    }
-
-
-    .hero-stamp {
-
-        right: 0;
-
-        padding: 8px 12px;
-
-        font-size: 12px;
-
-    }
-
-
-    .section-header h2 {
-
-        font-size: 3.6rem;
-
-    }
-
+.hero {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.hero h1 {
+    font-size: 3.15rem;
+}
+.hero-food {
+    height: 325px;
+}
+.hero-circle {
+    width: 260px;
+}
+.hero-image {
+    width: 250px;
+}
+.hero-stamp {
+    right: 0;
+    padding: 8px 12px;
+    font-size: 12px;
+}
+.section-header h2 {
+    font-size: 3.6rem;
+}
 
 }
 
-
 /* =========================================================
-   ACESSIBILIDADE
-   ========================================================= */
+ACESSIBILIDADE
+========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-
-    html {
-
-        scroll-behavior: auto;
-
-    }
-
-
-    *,
-    *::before,
-    *::after {
-
-        animation: none !important;
-
-        transition: none !important;
-
-    }
+html {
+    scroll-behavior: auto;
+}
+*,
+*::before,
+*::after {
+    animation: none !important;
+    transition: none !important;
+}
 
 }
