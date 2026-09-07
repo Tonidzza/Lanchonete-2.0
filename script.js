@@ -1,74 +1,93 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener(“DOMContentLoaded”, function () {
 
-    /* ================================
-       MENU MOBILE
-    ================================= */
-
-    const menuBtn = document.getElementById("menuBtn");
-    const menu = document.getElementById("menu");
-
-    if (menuBtn && menu) {
-
-        menuBtn.addEventListener("click", function () {
-
-            menu.classList.toggle("active");
-
-        });
-
-    }
-
-
-    /* ================================
-       FILTROS DO CARDÁPIO
-    ================================= */
-
-    const filters = document.querySelectorAll(".filter");
-    const products = document.querySelectorAll(".product-card");
-
-
-    filters.forEach(function (filter) {
-
-        filter.addEventListener("click", function () {
-
-            const category = this.getAttribute("data-filter");
-
-
-            /* Ativa somente o botão clicado */
-
-            filters.forEach(function (button) {
-
-                button.classList.remove("active");
-
-            });
-
-            this.classList.add("active");
-
-
-            /* Filtra os produtos */
-
-            products.forEach(function (product) {
-
-                const productCategory =
-                    product.getAttribute("data-category");
-
-
-                if (
-                    category === "all" ||
-                    category === productCategory
-                ) {
-
-                    product.style.display = "block";
-
-                } else {
-
-                    product.style.display = "none";
-
-                }
-
-            });
-
-        });
-
+/* =====================================================
+   MENU MOBILE
+   ===================================================== */
+const menuBtn = document.getElementById("menuBtn");
+const menu = document.getElementById("menu");
+const menuLinks = document.querySelectorAll(".menu a");
+if (menuBtn && menu) {
+    menuBtn.addEventListener("click", function () {
+        const isOpen = menu.classList.toggle("active");
+        menuBtn.classList.toggle("active", isOpen);
+        menuBtn.setAttribute("aria-expanded", isOpen);
+        menuBtn.setAttribute(
+            "aria-label",
+            isOpen ? "Fechar menu" : "Abrir menu"
+        );
     });
+    /* Fecha o menu ao clicar em uma opção */
+    menuLinks.forEach(function (link) {
+        link.addEventListener("click", function () {
+            menu.classList.remove("active");
+            menuBtn.classList.remove("active");
+            menuBtn.setAttribute("aria-expanded", "false");
+            menuBtn.setAttribute(
+                "aria-label",
+                "Abrir menu"
+            );
+        });
+    });
+}
+/* =====================================================
+   FILTROS DO CARDÁPIO
+   ===================================================== */
+const filters = document.querySelectorAll(".filter");
+const products = document.querySelectorAll(".product-card");
+filters.forEach(function (filter) {
+    filter.addEventListener("click", function () {
+        const category =
+            this.getAttribute("data-filter");
+        /* Ativa somente o botão clicado */
+        filters.forEach(function (button) {
+            button.classList.remove("active");
+        });
+        this.classList.add("active");
+        /* Filtra os produtos */
+        products.forEach(function (product) {
+            const productCategory =
+                product.getAttribute("data-category");
+            if (
+                category === "all" ||
+                category === productCategory
+            ) {
+                product.style.display = "";
+            } else {
+                product.style.display = "none";
+            }
+        });
+    });
+});
+/* =====================================================
+   DESTAQUE AUTOMÁTICO DO MENU
+   ===================================================== */
+const sections = document.querySelectorAll(
+    "main section[id]"
+);
+const observerOptions = {
+    root: null,
+    rootMargin: "-35% 0px -55% 0px",
+    threshold: 0
+};
+const sectionObserver =
+    new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                const currentId =
+                    entry.target.getAttribute("id");
+                menuLinks.forEach(function (link) {
+                    link.classList.remove("active");
+                    const href =
+                        link.getAttribute("href");
+                    if (href === "#" + currentId) {
+                        link.classList.add("active");
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+sections.forEach(function (section) {
+    sectionObserver.observe(section);
+});
 
 });
